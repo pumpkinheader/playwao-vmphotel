@@ -4287,7 +4287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c469d9be4dfd745f29a5a92567a62f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFloorNum: 1
+  debugFloorNum: 13
   startEventOn: 1
   fromContinue: 0
   GAMEEND: 0

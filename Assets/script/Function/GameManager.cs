@@ -422,6 +422,55 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						
 				deq ();
 		}
+
+		void preEleEv(){
+				//issue81
+				//エレベーター前のメッセージ
+				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
+				//menuBAR初期化
+				setq (message,"movere");
+				setq (menu,"keyoff",Type.PARALLEL);
+				setq (message, "hide",Type.PARALLEL);
+				setq (menu, "close");
+				//setq (menu,"hide");
+
+				//messagevisibleをいれないといけないかな？？？
+				//下の階に降りましょう＿＿＿
+				setq (gsm, "setmessageBlood", Type.SYSTEM);
+				setq (gsm, "changeMessageInc",Type.SYSTEM);
+				setq (message, "goalcal");
+				setq (menu,"open");
+				setq (message,"visible");
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
+				setq (message, "hide");
+				setq (menu, "close");
+				setq (menu,"hide");
+
+				setq (door,"closeEle1",Type.PARALLEL);
+
+				//エレベーターは閉まり始めた
+				setq (gsm, "changeMessageInc",Type.SYSTEM);
+				setq (message, "goalcal");
+
+				setq (message,"visible");
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
+				setq (message, "hide");
+
+				//扉から見えた管理人
+				setq (gsm, "changeMessageInc",Type.SYSTEM);
+				setq (message, "goalcal");
+
+				setq (message,"visible");
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
+
+				setq (door, "closeEle2");
+				setq (message, "hide");
+				deq ();
+
+		}
 		void keyEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				setq (gsm, "setmessageBlood", Type.SYSTEM);

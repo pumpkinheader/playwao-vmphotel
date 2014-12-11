@@ -99,7 +99,8 @@ public class GameSceneManager : MonoBehaviour {
 						if (name == "keyS") {
 								gkey = keynum.SILVER;
 								changeMessage (MessageState.ELE);
-								gm.SendMessage ("keyEv");
+								//gm.SendMessage ("keyEv");
+								gm.SendMessage ("preEleEv");
 						} else if (name == "keyG") {
 								gkey = keynum.GOLD;
 								changeMessage (MessageState.ELE);
@@ -174,6 +175,9 @@ public class GameSceneManager : MonoBehaviour {
 		}
 		void setmessageBlood(){
 				changeMessage (MessageState.ELE);
+		}
+		void changeMessageInc(){
+				Debug.Log ("changeMessage from"+m.ToString("F")+" to "+(++m).ToString("F"));
 		}
 
 		void stateUp(){
