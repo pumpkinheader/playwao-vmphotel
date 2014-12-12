@@ -473,7 +473,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (door, "closeEle2");
 				setq (message, "hide");
 				setq (menu, "close");
-				deq ();
+				setq (gsm,"setmessageBlood", Type.SYSTEM);
+				setq (gsm,"stateUp",Type.SYSTEM);
+				ELEPANELEv ();
+				//deq ();
 
 		}
 		void keyEv(){
