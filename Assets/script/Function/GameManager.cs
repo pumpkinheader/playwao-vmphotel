@@ -442,32 +442,37 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (menu,"open");
 				setq (message,"visible");
 				setq (timer,"waitasecond");
-				setq (timer,"waitasecond");
 				setq (message, "hide");
-				setq (menu, "close");
-				setq (menu,"hide");
+				setq (menu, "closeNoHide");
+				//setq (menu,"hide");
 
 				setq (door,"closeEle1",Type.PARALLEL);
+				setq (fogall,"visiblefull");
 
 				//エレベーターは閉まり始めた
 				setq (gsm, "changeMessageInc",Type.SYSTEM);
 				setq (message, "goalcal");
 
+				setq (menu, "open", Type.PARALLEL);
 				setq (message,"visible");
 				setq (timer,"waitasecond");
 				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
 				setq (message, "hide");
+				//setq (menu, "closeNoHide");
 
 				//扉から見えた管理人
 				setq (gsm, "changeMessageInc",Type.SYSTEM);
 				setq (message, "goalcal");
 
+				setq (menu, "open", Type.PARALLEL);
 				setq (message,"visible");
 				setq (timer,"waitasecond");
 				setq (timer,"waitasecond");
 
 				setq (door, "closeEle2");
 				setq (message, "hide");
+				setq (menu, "close");
 				deq ();
 
 		}

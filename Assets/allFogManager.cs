@@ -42,6 +42,16 @@ public class allFogManager : MonoBehaviour {
 				}
 				deq ();
 		}
+		void visiblefull(int type){
+				setDefault ();
+				iTween.ColorTo (this.gameObject, iTween.Hash ("a", 1.0f, "time",time/2f-1f,"delay",0.8f));
+				float i = 1f;
+				foreach (GameObject go in fogs) {
+						i *= -1f;
+						iTween.MoveTo (go, iTween.Hash ("x", -200f*i, "islocal",true,"easetype", iTween.EaseType.easeInOutSine, "time", 12.0f));
+				}
+				deq ();
+		}
 		void setDefault(){
 				Vector3 tmp = fogs [0].transform.localPosition;
 				fogs [0].transform.localPosition = new Vector3 (def[0],tmp.y,tmp.z);

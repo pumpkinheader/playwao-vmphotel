@@ -188,6 +188,24 @@ public class MenuManager : MonoBehaviour {
 						deq ();
 				}
 		}
+		void closeNoHide(int type){
+				float time = 1.2f;
+				if (type == 1) {
+						iTween.MoveTo (menutop, iTween.Hash ("y", topclose, 
+								"delay", delay, "time", time,
+								"oncompletetarget", this.gameObject,
+								"oncomplete", "deq"));
+						iTween.MoveTo (menubottom, iTween.Hash ("y", bottomclose, 
+								"delay", delay, "time", time));
+						iTween.ScaleTo (menuback,iTween.Hash("y",backscale,"delay",delay,"time",time));
+				}
+				else {
+						iTween.MoveTo (menutop,iTween.Hash("y",topclose,"delay",delay,"time",time));
+						iTween.MoveTo (menubottom,iTween.Hash("y",bottomclose,"delay",delay,"time",time));
+						iTween.ScaleTo (menuback,iTween.Hash("y",backscale,"delay",delay,"time",time));
+						deq ();
+				}
+		}
 
 
 		void replaceBar(){

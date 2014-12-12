@@ -18,8 +18,8 @@ public class GameSceneManager : MonoBehaviour {
 		private bool shelf=false;
 		private bool dozo=false;
 		private bool hikidashi=false;
-		public static int thcounter=0;
-		public static int remain = 3;
+		public static int thcounter=0;//defalut 0
+		public static int remain = 3;//default 3
 
 
 		public enum state{
@@ -35,7 +35,7 @@ public class GameSceneManager : MonoBehaviour {
 				GAMEEND = 99,
 		}public static state gstate;
 		public static state before;
-		public static keynum gkey = keynum.NOKEY;
+		public static keynum gkey = keynum.NOKEY;//defalut normal
 		public static endElevator gelepanel = endElevator.NOCROSS;
 		public static endstate ending = endstate.NORMAL;
 

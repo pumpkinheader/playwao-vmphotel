@@ -240,6 +240,21 @@ public class Message: MonoBehaviour {
 						text = "テキストきりかえ！";
 						line = 4.0f;
 						break;   
+				case MessageState.preEle1:
+						text = "さぁ下に戻りましょう……";
+						line = 4.0f;
+						break;
+				case MessageState.preEle2:
+						//tempc = new Color (1, 1, 1, 0);
+						//cinema.window.normal.textColor = tempc;
+						text = "私が乗ると、エレベーターは突然\n" +
+						                               "閉まりはじめた……。";
+						line = 4f;
+						break;
+				case MessageState.preEle3:
+						text = "扉の隙間から見えた案内人の顔は､\n薄気味悪く微笑んでいた……";
+						line = 4.0f;
+						break;
 				default:
 						Debug.Log ("UNKNON MESSAGE STATE");
 						tempc = new Color (1, 1, 1, 0);

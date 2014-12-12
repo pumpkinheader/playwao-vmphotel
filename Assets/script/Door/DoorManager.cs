@@ -77,18 +77,21 @@ public class DoorManager : MonoBehaviour {
 
 		}
 		void closeEle1(int type){
-				float time = 2.4f;
+				float time = 4.6f;
 				if (leftdoor.transform.localPosition.x != lclose)
-						iTween.MoveTo (leftdoor, iTween.Hash ("islocal", true, "x",lclose-10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad));
+						iTween.MoveTo (leftdoor, iTween.Hash ("islocal", true, "x",lclose-10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutExpo));
 				else {
 						deq ();
 						return;
 				}
-				iTween.MoveTo (rightdoor, iTween.Hash ("islocal",true,"x", rclose+10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad));
-				deq ();
+				if (type == 1) {
+						iTween.MoveTo (rightdoor, iTween.Hash ("islocal", true, "x", rclose + 10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutExpo,"oncompletetarget", this.gameObject, "oncomplete", "deq"));
+				} else {
+						iTween.MoveTo (rightdoor, iTween.Hash ("islocal", true, "x", rclose + 10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutExpo));
+						deq ();
+				}
 		}
 		void closeEle2(int type){
-				Debug.Log ("in function");
 				float time = 0.6f;
 				if (leftdoor.transform.localPosition.x != lclose)
 						iTween.MoveTo (leftdoor, iTween.Hash ("islocal", true, "x",lclose, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncomplete", "doorclosed", "oncompletetarget", this.gameObject));
@@ -97,9 +100,7 @@ public class DoorManager : MonoBehaviour {
 						deq ();
 						return;
 				}
-				Debug.Log ("left closed,,,next right");
 				iTween.MoveTo (rightdoor, iTween.Hash ("islocal",true,"x", rclose, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncompletetarget", this.gameObject, "oncomplete", "shakemini"));
-				Debug.Log ("right closed,,,what's next ");
 
 		}
 		void openend(int type){
