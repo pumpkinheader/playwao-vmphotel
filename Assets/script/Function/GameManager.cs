@@ -475,6 +475,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (menu, "close");
 				setq (gsm,"setmessageBlood", Type.SYSTEM);
 				setq (gsm,"stateUp",Type.SYSTEM);
+				setq (message,"goalcal");
 				ELEPANELEv ();
 				//deq ();
 
@@ -503,10 +504,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 		void ELEPANELEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
+				setq (message,"visible");
+				setq (fogall,"tored",Type.SYSTEM);
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
 				setq (message,"hide");
 				setq (menu,"close");
 				setq (menu,"hide");
 				setq (menu,"bottomoff");
+				setq (fogall,"pingpong");
 				setq (elepanel,"visible");
 
 				//setq (fogall, "tored");

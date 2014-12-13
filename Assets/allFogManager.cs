@@ -69,11 +69,16 @@ public class allFogManager : MonoBehaviour {
 				deq ();
 		}
 		void tored(){
-				iTween.ColorTo (this.gameObject, iTween.Hash ("r",0.5f,"b", 0f, "g", 0f, "time", time/2f));
+				float time = 2.0f; 
+				iTween.ColorTo (this.gameObject, iTween.Hash ("r",0.6f,"b", 0f, "g", 0f, "time", time/2f));
 		}
 		void towhite(int type){
 				iTween.ColorTo (this.gameObject, iTween.Hash ("r",1f,"g", 1f, "b",1f,"time", time/4f));
 				deq ();
+		}
+		void pingpong(int type){
+				iTween.ColorTo (this.gameObject, iTween.Hash("a",0f,"time",2f,"looptype","pingpong"));
+				deq();
 		}
 		void colorupdate(float c){
 
