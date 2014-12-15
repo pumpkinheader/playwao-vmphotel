@@ -77,6 +77,7 @@ public class allFogManager : MonoBehaviour {
 				deq ();
 		}
 		void pingpong(int type){
+				iTween.Stop (gameObject);
 				iTween.ColorTo (this.gameObject, iTween.Hash("a",0f,"time",2f,"looptype","pingpong"));
 				deq();
 		}

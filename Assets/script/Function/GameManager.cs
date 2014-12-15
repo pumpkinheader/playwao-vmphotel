@@ -502,6 +502,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (message,"visible");
 				deq ();
 		}
+		public GameObject timebar;
 		void ELEPANELEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				setq (message,"visible");
@@ -513,6 +514,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (menu,"hide");
 				setq (menu,"bottomoff");
 				setq (fogall,"pingpong");
+				setq (q,"onCamera",Type.SYSTEM);
+				setq (q,"endmode",Type.SYSTEM);
+				setq (timebar,"visible");
+				setq (timebar,"timerstart");
 				setq (elepanel,"visible");
 
 				//setq (fogall, "tored");

@@ -103,6 +103,7 @@
      <Compile Include="Assets\script\nowloading\loadingString.cs" />
      <Compile Include="Assets\script\nowloading\nowLoadingManager.cs" />
      <Compile Include="Assets\testtenmetsu.cs" />
+     <Compile Include="Assets\timebar.cs" />
      <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
   </ItemGroup>
   <ItemGroup>
