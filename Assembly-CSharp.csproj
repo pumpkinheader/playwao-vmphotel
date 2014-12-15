@@ -63,6 +63,7 @@
      <Compile Include="Assets\background.cs" />
      <Compile Include="Assets\bc_end.cs" />
      <Compile Include="Assets\bloodGui.cs" />
+     <Compile Include="Assets\crossManager.cs" />
      <Compile Include="Assets\elepanebutton.cs" />
      <Compile Include="Assets\eleplate.cs" />
      <Compile Include="Assets\fog.cs" />

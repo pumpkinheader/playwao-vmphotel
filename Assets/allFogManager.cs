@@ -69,7 +69,7 @@ public class allFogManager : MonoBehaviour {
 				deq ();
 		}
 		void tored(){
-				float time = 2.0f; 
+				float time = 4.0f; 
 				iTween.ColorTo (this.gameObject, iTween.Hash ("r",0.6f,"b", 0f, "g", 0f, "time", time/2f));
 		}
 		void towhite(int type){
@@ -78,7 +78,7 @@ public class allFogManager : MonoBehaviour {
 		}
 		void pingpong(int type){
 				iTween.Stop (gameObject);
-				iTween.ColorTo (this.gameObject, iTween.Hash("a",0f,"time",2f,"looptype","pingpong"));
+				iTween.ColorTo (this.gameObject, iTween.Hash("a",0f,"time",1f,"looptype","pingpong"));
 				deq();
 		}
 		void colorupdate(float c){

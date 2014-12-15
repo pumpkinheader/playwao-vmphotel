@@ -6,11 +6,23 @@
       <File FileName="Assets/script/GameScene/GameSceneManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Timer.cs" Line="1" Column="1" />
       <File FileName="Assets/allFogManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/MenuCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets/script/UI/MenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/timebar.cs" Line="18" Column="41" />
-      <File FileName="Assets/script/Q/QManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/timebar.cs" Line="72" Column="36" />
+      <File FileName="Assets/script/Q/QManager.cs" Line="66" Column="75" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="script" expanded="True">
+              <Node name="Function" expanded="True" />
+              <Node name="Q" expanded="True" />
+              <Node name="UI" expanded="True" />
+            </Node>
+            <Node name="timebar.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

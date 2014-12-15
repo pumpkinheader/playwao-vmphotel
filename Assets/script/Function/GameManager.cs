@@ -527,6 +527,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				//setq (this.gameObject,"timeupEv");
 				deq ();
 		}
+		public GameObject cross;
+		void crossEv(){
+				setq (cross,"visible");
+				deq ();
+		}
 
 		public float limit = 6.0f;
 		void timeupEv(){
