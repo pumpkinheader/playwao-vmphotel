@@ -8,8 +8,10 @@ public class crossManager : MonoBehaviour {
 		SpriteRenderer sr_r= new SpriteRenderer();
 		SpriteRenderer sr_c = new SpriteRenderer();
 
+
 	// Use this for initialization
 	void Start () {
+				GameSceneManager.gmscript.cross = this.gameObject;
 				cross_r = GameObject.Find ("cross_r");
 				cross_c = GameObject.Find ("cross_c");
 				sr_r = cross_r.GetComponent<SpriteRenderer> ();
@@ -30,8 +32,8 @@ public class crossManager : MonoBehaviour {
 				sr_r.enabled = true;
 				//iTween.ColorTo (cross_r,iTween.Hash("a",0.9f,"time",0.6f,"easetype",iTween.EaseType.easeOutExpo));
 				//iTween.ColorTo (cross_c,iTween.Hash("a",0.9f,"time",0.6f,"easetype",iTween.EaseType.easeOutExpo));
-				iTween.ColorTo(cross_c,iTween.Hash("a",1f,"looptype","loop","easetype","easeincirc","time",0.8f));
-				iTween.ColorTo(cross_r,iTween.Hash("a",1f,"looptype","loop","easetype","easeincirc","time",0.8f));
+				iTween.ColorTo(cross_c,iTween.Hash("a",1f,"delay",0.4f,"looptype","loop","easetype","easeincirc","time",0.8f));
+				iTween.ColorTo(cross_r,iTween.Hash("a",1f,"delay",0.4f,"looptype","loop","easetype","easeincirc","time",0.8f));
 				deq ();
 		}
 		void hide(int type){

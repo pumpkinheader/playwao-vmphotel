@@ -537,6 +537,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void timeupEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
+				setq (cross, "hide");
 				setq (elepanel,"hide");
 				setq (elepanel,"checkbutton");
 				setq (door,"stop");
