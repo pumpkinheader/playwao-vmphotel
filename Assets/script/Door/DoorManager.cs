@@ -76,6 +76,33 @@ public class DoorManager : MonoBehaviour {
 				iTween.MoveTo (rightdoor, iTween.Hash ("islocal",true,"x", rclose, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncompletetarget", this.gameObject, "oncomplete", "shakemini"));
 
 		}
+		void closeEle1(int type){
+				float time = 4.6f;
+				if (leftdoor.transform.localPosition.x != lclose)
+						iTween.MoveTo (leftdoor, iTween.Hash ("islocal", true, "x",lclose-10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutExpo));
+				else {
+						deq ();
+						return;
+				}
+				if (type == 1) {
+						iTween.MoveTo (rightdoor, iTween.Hash ("islocal", true, "x", rclose + 10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutExpo,"oncompletetarget", this.gameObject, "oncomplete", "deq"));
+				} else {
+						iTween.MoveTo (rightdoor, iTween.Hash ("islocal", true, "x", rclose + 10f, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutExpo));
+						deq ();
+				}
+		}
+		void closeEle2(int type){
+				float time = 0.6f;
+				if (leftdoor.transform.localPosition.x != lclose)
+						iTween.MoveTo (leftdoor, iTween.Hash ("islocal", true, "x",lclose, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncomplete", "doorclosed", "oncompletetarget", this.gameObject));
+				else {
+						Debug.Log ("in function");
+						deq ();
+						return;
+				}
+				iTween.MoveTo (rightdoor, iTween.Hash ("islocal",true,"x", rclose, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncompletetarget", this.gameObject, "oncomplete", "shakemini"));
+
+		}
 		void openend(int type){
 				if (opened) {
 						deq ();

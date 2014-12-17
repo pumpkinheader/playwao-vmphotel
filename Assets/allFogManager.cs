@@ -42,6 +42,16 @@ public class allFogManager : MonoBehaviour {
 				}
 				deq ();
 		}
+		void visiblefull(int type){
+				setDefault ();
+				iTween.ColorTo (this.gameObject, iTween.Hash ("a", 1.0f, "time",time/2f-1f,"delay",0.8f));
+				float i = 1f;
+				foreach (GameObject go in fogs) {
+						i *= -1f;
+						iTween.MoveTo (go, iTween.Hash ("x", -200f*i, "islocal",true,"easetype", iTween.EaseType.easeInOutSine, "time", 12.0f));
+				}
+				deq ();
+		}
 		void setDefault(){
 				Vector3 tmp = fogs [0].transform.localPosition;
 				fogs [0].transform.localPosition = new Vector3 (def[0],tmp.y,tmp.z);
@@ -59,11 +69,17 @@ public class allFogManager : MonoBehaviour {
 				deq ();
 		}
 		void tored(){
-				iTween.ColorTo (this.gameObject, iTween.Hash ("r",0.5f,"b", 0f, "g", 0f, "time", time/2f));
+				float time = 4.0f; 
+				iTween.ColorTo (this.gameObject, iTween.Hash ("r",0.6f,"b", 0f, "g", 0f, "time", time/2f));
 		}
 		void towhite(int type){
 				iTween.ColorTo (this.gameObject, iTween.Hash ("r",1f,"g", 1f, "b",1f,"time", time/4f));
 				deq ();
+		}
+		void pingpong(int type){
+				iTween.Stop (gameObject);
+				iTween.ColorTo (this.gameObject, iTween.Hash("a",0f,"time",1f,"looptype","pingpong"));
+				deq();
 		}
 		void colorupdate(float c){
 

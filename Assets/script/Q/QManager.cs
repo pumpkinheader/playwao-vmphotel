@@ -58,7 +58,13 @@ public class QManager : MonoBehaviour {
 	void Update () {
 	
 	}
-
+		void onCamera(){
+				qcam.camera.enabled = true;
+		}
+		void endmode(){
+				Debug.Log ("tectheigt"+qcam.camera.rect.width);
+				qcam.camera.rect = new Rect (qcam.camera.rect.x,qcam.camera.rect.y,0.85f,qcam.camera.rect.height);
+		}
 		void visible(int type){
 				qcam.camera.enabled=true;
 				if (now != GameSceneManager.floorNum) {

@@ -353,7 +353,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 				//setq (door,"shake");
 				if (GameSceneManager.thcounter == 3) {
-						keyEv ();
+						preEleEv ();
 						return;
 				}
 				setq (door,"openth");
@@ -422,6 +422,64 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						
 				deq ();
 		}
+
+		void preEleEv(){
+				//issue81
+				//エレベーター前のメッセージ
+				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
+				//menuBAR初期化
+				setq (message,"movere");
+				setq (menu,"keyoff",Type.PARALLEL);
+				setq (message, "hide",Type.PARALLEL);
+				setq (menu, "close");
+				//setq (menu,"hide");
+
+				//messagevisibleをいれないといけないかな？？？
+				//下の階に降りましょう＿＿＿
+				setq (gsm, "setmessageBlood", Type.SYSTEM);
+				setq (gsm, "changeMessageInc",Type.SYSTEM);
+				setq (message, "goalcal");
+				setq (menu,"open");
+				setq (message,"visible");
+				setq (timer,"waitasecond");
+				setq (message, "hide");
+				setq (menu, "closeNoHide");
+				//setq (menu,"hide");
+
+				setq (door,"closeEle1",Type.PARALLEL);
+				setq (fogall,"visiblefull");
+
+				//エレベーターは閉まり始めた
+				setq (gsm, "changeMessageInc",Type.SYSTEM);
+				setq (message, "goalcal");
+
+				setq (menu, "open", Type.PARALLEL);
+				setq (message,"visible");
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
+				setq (message, "hide");
+				//setq (menu, "closeNoHide");
+
+				//扉から見えた管理人
+				setq (gsm, "changeMessageInc",Type.SYSTEM);
+				setq (message, "goalcal");
+
+				setq (menu, "open", Type.PARALLEL);
+				setq (message,"visible");
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
+
+				setq (door, "closeEle2");
+				setq (message, "hide");
+				setq (menu, "close");
+				setq (gsm,"setmessageBlood", Type.SYSTEM);
+				setq (gsm,"stateUp",Type.SYSTEM);
+				setq (message,"goalcal");
+				ELEPANELEv ();
+				//deq ();
+
+		}
 		void keyEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				setq (gsm, "setmessageBlood", Type.SYSTEM);
@@ -444,12 +502,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (message,"visible");
 				deq ();
 		}
+		public GameObject timebar;
 		void ELEPANELEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
+				setq (message,"visible");
+				setq (fogall,"tored",Type.SYSTEM);
+				setq (timer,"waitasecond");
+				setq (timer,"waitasecond");
 				setq (message,"hide");
 				setq (menu,"close");
 				setq (menu,"hide");
 				setq (menu,"bottomoff");
+				setq (fogall,"pingpong");
+				setq (q,"onCamera",Type.SYSTEM);
+				setq (q,"endmode",Type.SYSTEM);
+				setq (timebar,"visible");
+				setq (timebar,"timerstart");
 				setq (elepanel,"visible");
 
 				//setq (fogall, "tored");
@@ -459,11 +527,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				//setq (this.gameObject,"timeupEv");
 				deq ();
 		}
+		public GameObject cross;
+		public GameObject overlayer;
+		void crossEv(){
+				setq (cross,"visible");
+				setq (overlayer,"visible");
+				deq ();
+		}
 
 		public float limit = 6.0f;
 		void timeupEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
+				setq (cross, "hide");
 				setq (elepanel,"hide");
 				setq (elepanel,"checkbutton");
 				setq (door,"stop");

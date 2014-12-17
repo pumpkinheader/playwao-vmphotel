@@ -18,8 +18,8 @@ public class GameSceneManager : MonoBehaviour {
 		private bool shelf=false;
 		private bool dozo=false;
 		private bool hikidashi=false;
-		public static int thcounter=0;
-		public static int remain = 3;
+		public static int thcounter=0;//defalut 0
+		public static int remain = 3;//default 3
 
 
 		public enum state{
@@ -35,7 +35,7 @@ public class GameSceneManager : MonoBehaviour {
 				GAMEEND = 99,
 		}public static state gstate;
 		public static state before;
-		public static keynum gkey = keynum.NOKEY;
+		public static keynum gkey = keynum.NOKEY;//defalut normal
 		public static endElevator gelepanel = endElevator.NOCROSS;
 		public static endstate ending = endstate.NORMAL;
 
@@ -99,11 +99,13 @@ public class GameSceneManager : MonoBehaviour {
 						if (name == "keyS") {
 								gkey = keynum.SILVER;
 								changeMessage (MessageState.ELE);
-								gm.SendMessage ("keyEv");
+								//gm.SendMessage ("keyEv");
+								gm.SendMessage ("preEleEv");
 						} else if (name == "keyG") {
 								gkey = keynum.GOLD;
 								changeMessage (MessageState.ELE);
-								gm.SendMessage ("keyEv");
+								//gm.SendMessage ("keyEv");
+								gm.SendMessage ("preEleEv");
 						} else if ((name == "SHELF") && (!shelf) && (!dozo) && (!hikidashi)) {
 								shelf = true;
 								changeMessage (MessageState.SHELF);
@@ -174,6 +176,9 @@ public class GameSceneManager : MonoBehaviour {
 		}
 		void setmessageBlood(){
 				changeMessage (MessageState.ELE);
+		}
+		void changeMessageInc(){
+				Debug.Log ("changeMessage from"+m.ToString("F")+" to "+(++m).ToString("F"));
 		}
 
 		void stateUp(){
