@@ -353,6 +353,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 				//setq (door,"shake");
 				if (GameSceneManager.thcounter == 3) {
+						setq (menu,"bottomoff");
 						setq (gsm, "changeStatekeymessage", Type.SYSTEM);
 						preEleEv ();
 						return;
