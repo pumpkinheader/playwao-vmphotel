@@ -80,10 +80,12 @@ public class GameSceneManager : MonoBehaviour {
 								checkAnswer ();
 						if (name == "optionbutton") {
 								before = state.MENU;
+								Time.timeScale = 0f;
 								gm.SendMessage (name + "Ev");
 								/*} else if (name == "closeth") {
 								gm.SendMessage (name + "Ev");*/
 						} else {
+								Time.timeScale = 1.0f;
 								gm.SendMessage (gstate.ToString ("F") + "Ev");
 						}
 
@@ -179,6 +181,9 @@ public class GameSceneManager : MonoBehaviour {
 		}
 		void changeMessageInc(){
 				Debug.Log ("changeMessage from"+m.ToString("F")+" to "+(++m).ToString("F"));
+		}
+		void changeStatekeymessage(){
+				gstate = state.keymessage;;
 		}
 
 		void stateUp(){

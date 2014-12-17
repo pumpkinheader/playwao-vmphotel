@@ -353,6 +353,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 				//setq (door,"shake");
 				if (GameSceneManager.thcounter == 3) {
+						setq (gsm, "changeStatekeymessage", Type.SYSTEM);
 						preEleEv ();
 						return;
 				}
@@ -539,7 +540,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void timeupEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
-				setq (cross, "hide");
+				//setq (cross, "hide");
 				setq (elepanel,"hide");
 				setq (elepanel,"checkbutton");
 				setq (door,"stop");
