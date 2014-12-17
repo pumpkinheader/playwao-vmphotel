@@ -528,8 +528,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				deq ();
 		}
 		public GameObject cross;
+		public GameObject overlayer;
 		void crossEv(){
 				setq (cross,"visible");
+				setq (overlayer,"visible");
 				deq ();
 		}
 

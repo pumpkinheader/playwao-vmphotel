@@ -66,7 +66,7 @@ public class timebar : MonoBehaviour {
 		}
 		int now = 0;
 		void changeNum(int i){
-				Debug.Log ("spent "+i+ " seconds");
+				//Debug.Log ("spent "+i+ " seconds");
 				if (now != i) {
 						now = i;
 						tmbsrs [2].sprite = numbers[8 - now];

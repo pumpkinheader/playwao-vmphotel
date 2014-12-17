@@ -1,28 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/timebar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/GameScene/GameSceneManager.cs">
     <Files>
       <File FileName="Assets/script/Function/GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/script/GameScene/GameSceneManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Timer.cs" Line="1" Column="1" />
-      <File FileName="Assets/allFogManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/timebar.cs" Line="72" Column="36" />
-      <File FileName="Assets/script/Q/QManager.cs" Line="66" Column="75" />
+      <File FileName="Assets/timebar.cs" Line="1" Column="1" />
+      <File FileName="Assets/script/Q/QManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/crossManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/ElepaneManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/elepanebutton.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="script" expanded="True">
-              <Node name="Function" expanded="True" />
-              <Node name="Q" expanded="True" />
-              <Node name="UI" expanded="True" />
-            </Node>
-            <Node name="timebar.cs" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
