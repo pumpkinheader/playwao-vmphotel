@@ -353,7 +353,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 				//setq (door,"shake");
 				if (GameSceneManager.thcounter == 3) {
-						keyEv ();
+						preEleEv ();
 						return;
 				}
 				setq (door,"openth");

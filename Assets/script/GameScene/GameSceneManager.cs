@@ -104,7 +104,8 @@ public class GameSceneManager : MonoBehaviour {
 						} else if (name == "keyG") {
 								gkey = keynum.GOLD;
 								changeMessage (MessageState.ELE);
-								gm.SendMessage ("keyEv");
+								//gm.SendMessage ("keyEv");
+								gm.SendMessage ("preEleEv");
 						} else if ((name == "SHELF") && (!shelf) && (!dozo) && (!hikidashi)) {
 								shelf = true;
 								changeMessage (MessageState.SHELF);
