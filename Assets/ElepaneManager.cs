@@ -35,12 +35,12 @@ public class ElepaneManager : MonoBehaviour {
 		}
 
 		void checkbutton(int type){
-				if (elepanebutton.onbutton [2] &&
+				if (elepanebutton.onbutton [3] &&
 				    elepanebutton.onbutton [11] &&
 				    elepanebutton.onbutton [5] &&
-				    elepanebutton.onbutton [7] &&
-				    elepanebutton.onbutton [8] &&
-				    elepanebutton.onbutton [9]) {
+						elepanebutton.onbutton [6] &&
+						elepanebutton.onbutton [7] &&
+						elepanebutton.onbutton [8]) {
 						if (elepanebutton.onbutton [0])
 								GameSceneManager.gelepanel = GameSceneManager.endElevator.TOUNDERGROUND;
 						else

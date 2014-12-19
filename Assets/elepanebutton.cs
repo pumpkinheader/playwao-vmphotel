@@ -36,12 +36,12 @@ public class elepanebutton : MonoBehaviour {
 				else if (num == 0)
 						onbutton [iam] = false;
 
-				if(onbutton [2] &&
+				if(onbutton [3] &&
 						onbutton [11] &&
 						onbutton [5] &&
+						onbutton [6] &&
 						onbutton [7] &&
-						onbutton [8] &&
-						onbutton [9]){
+						onbutton [8]){
 						GameSceneManager.gm.SendMessage ("crossEv");
 				}
 		}

@@ -100,7 +100,7 @@ public class Message: MonoBehaviour {
 				//GameSceneManager.remain--;
 				switch(m){
 				case MessageState.CORRECT:
-						text = "正解！\n次のかいへ。";//CORRECT
+						text = "正解！\n次の階へ。";//CORRECT
 						line = 4.0f;
 						windowheight = fontsize * line;
 						break;
@@ -123,9 +123,11 @@ public class Message: MonoBehaviour {
 						break;
 				case MessageState.HIKIDASHI:
 						text = "自分の身を守ったのは、\n" +
-						                               "偶然ではなく奇跡だった。\n\n" +
-						                               "鍵をひとつ、手に取れ。";
-						line = 8.0f;
+						                               "<u>偶然ではなく奇跡だった。</u>\n\n" +
+						                               "鍵をひとつ、手に取れ。\n\n\n\n" +
+						                               "? ? ? ? ? ?   ? ? ? ? ? ?\n" +
+						                               "‾ ‾ ‾ ‾ ‾ ‾   ‾ ‾ ‾ ‾ ‾ ‾";
+						line = 18.0f;
 						break;
 				case MessageState.SHELF:
 						text = "20XX年5月27日\n\n" +
@@ -154,6 +156,9 @@ public class Message: MonoBehaviour {
 						}
 						break;
 				case MessageState.ELE:
+						tempc = new Color (1, 1, 1, 0);
+						cinema.window.normal.textColor = tempc;
+						iTween.ValueTo (this.gameObject,iTween.Hash("from",1.0f,"to",0.0f,"time",0.01f,"onupdate","colorupdate"));
 						text = "「チヲ…ノマセロ！！！」";
 						break;
 				case MessageState.NOCROSS:

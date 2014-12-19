@@ -413,6 +413,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						setq (message, "visible");
 						setq (menu, "fullopen");
 						setq (message,"move");
+						//setq(message,)
 						setq (menu,"keyon");
 						keyview = true;
 				} else {

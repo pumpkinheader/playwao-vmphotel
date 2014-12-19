@@ -80,12 +80,10 @@ public class GameSceneManager : MonoBehaviour {
 								checkAnswer ();
 						if (name == "optionbutton") {
 								before = state.MENU;
-								Time.timeScale = 0f;
 								gm.SendMessage (name + "Ev");
 								/*} else if (name == "closeth") {
 								gm.SendMessage (name + "Ev");*/
 						} else {
-								Time.timeScale = 1.0f;
 								gm.SendMessage (gstate.ToString ("F") + "Ev");
 						}
 
@@ -163,7 +161,7 @@ public class GameSceneManager : MonoBehaviour {
 				MessageState temp;
 				string text = GuiManager.textFieldString;
 				bool correct=true;
-				if (text == "ANSWER ?")return;
+				if (text == "ひらがなで！")return;
 				//if (text != answers [floorNum - 1])correct = false;
 				if (correct)
 						temp = MessageState.CORRECT;
@@ -191,7 +189,7 @@ public class GameSceneManager : MonoBehaviour {
 				if (floorNum == 13 && gstate != state.keymessage){gstate = state.THIRTEEN;changeMessage (MessageState.INTOTHIRTEEN);return;}
 				if (GAMEEND) {gstate = state.GAMEEND;return;}
 				gstate++;
-				GuiManager.textFieldString = "ANSWER ?";
+				GuiManager.textFieldString = "ひらがなで！";
 				if (gstate == state.ZZZ)
 						gstate = state.Q;
 		}

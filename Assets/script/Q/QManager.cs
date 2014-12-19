@@ -19,6 +19,7 @@ public class QManager : MonoBehaviour {
 		private List<BoxCollider2D> collis = new List<BoxCollider2D>();
 
 		private GameObject qcam;
+		private bool moved = false;
 	// Use this for initialization
 	void Start () {
 				qcam = GameObject.Find ("QCamera");
@@ -120,27 +121,31 @@ public class QManager : MonoBehaviour {
 
 
 		void move(int type){
-				float goal = MenuManager.full-15f - qrenderer.sprite.rect.size.y / 2.0f;
-				//Debug.Log ("move to "+ goal + "(Q)");
-				//this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x,goal,this.gameObject.transform.position.z);
+				if (!moved) {
+						//moved = true;
+						float goal = MenuManager.full - 15f - qrenderer.sprite.rect.size.y / 2.0f;
+						//Debug.Log ("move to "+ goal + "(Q)");
+						//this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x,goal,this.gameObject.transform.position.z);
 
-				//5階縦長につき特別仕様
-				if (GameSceneManager.floorNum == 5)
-						goal = qrenderer.transform.localPosition.y+qbackheight/2.0f;
+						//5階縦長につき特別仕様
+						if (GameSceneManager.floorNum == 5)
+								goal = qrenderer.transform.localPosition.y + qbackheight / 2.0f;
 
-				foreach (GameObject tg in qbacks) {
-						iTween.ColorTo (tg, iTween.Hash ("a", 0.0f, "easetype", "easeincirc", "time", 0.8f));
-				}
-				if (type == 1)
-						iTween.MoveTo (this.gameObject, iTween.Hash ("y", goal, "oncompletetarget", gameObject, "oncomplete", "deq"));
-				else {
-						iTween.MoveTo (this.gameObject, iTween.Hash ("y", goal));
-						deq ();
+						foreach (GameObject tg in qbacks) {
+								iTween.ColorTo (tg, iTween.Hash ("a", 0.0f, "easetype", "easeincirc", "time", 0.8f));
+						}
+						if (type == 1)
+								iTween.MoveTo (this.gameObject, iTween.Hash ("y", goal, "oncompletetarget", gameObject, "oncomplete", "deq"));
+						else {
+								iTween.MoveTo (this.gameObject, iTween.Hash ("y", goal));
+								deq ();
+						}
 				}
 						
 		}
 		void qreturn(){
 				this.gameObject.transform.localPosition = originalPos;
+				moved = false;
 		}
 		void elevenmove(int type){
 				float goal = 1.0f;
