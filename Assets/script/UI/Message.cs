@@ -99,6 +99,10 @@ public class Message: MonoBehaviour {
 		void changeMessage(MessageState m) {
 				//GameSceneManager.remain--;
 				switch(m){
+				case MessageState.INTROTOGAME:
+						text = "ようこそおいでくださいました・・・・";
+						line = 4.0f;
+						break;
 				case MessageState.CORRECT:
 						text = "正解！\n次の階へ。";//CORRECT
 						line = 4.0f;

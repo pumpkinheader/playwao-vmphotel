@@ -175,7 +175,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				NEXTEv ();
 				//deq ();
 		}
-
 		//optionEv
 		void optionbuttonEv(){
 				if (keyview) {
