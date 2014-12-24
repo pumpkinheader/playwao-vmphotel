@@ -166,6 +166,30 @@ public class MenuManager : MonoBehaviour {
 						"delay", delay, "time", 0.8f));
 				iTween.ScaleTo (menuback,iTween.Hash("y",goalscale,"delay",delay,"time",0.8f));
 		}
+		void openIntro(int type){
+				visible (1);
+				goalformenu = GameSceneManager.movetogoal.y + topclose;
+				float goalscale = goalformenu*2f/backsize;
+
+				foreach (GameObject go in menus)
+						iTween.ColorTo (go,iTween.Hash("a", 1.0f, "easetype", "easeincirc", "time", 0.8f));
+				Debug.Log ("open to "+ goalformenu);
+				if (type == 1) {
+						iTween.MoveTo (menutop, iTween.Hash ("y", goalformenu, 
+								"delay", delay, "time", 0.8f,
+								"oncompletetarget", this.gameObject,
+								"oncomplete", "deq"));
+						iTween.MoveTo (menubottom, iTween.Hash ("y", -goalformenu, 
+								"delay", delay, "time", 0.8f));
+						iTween.ScaleTo (menuback,iTween.Hash("y",goalscale,"delay",delay,"time",0.8f));
+				}
+				else {
+						deq ();
+						iTween.MoveTo (menutop,iTween.Hash("y",goalformenu,"delay",delay,"time",0.8f));
+						iTween.MoveTo (menubottom,iTween.Hash("y",-goalformenu,"delay",delay,"time",0.8f));
+						iTween.ScaleTo (menuback,iTween.Hash("y",goalscale,"delay",delay,"time",0.8f));
+				}
+		}
 
 
 

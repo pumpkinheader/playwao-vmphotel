@@ -169,11 +169,38 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		public GameObject batmanage;
 
 		//GameStart
+		void INTRO1Ev(){
+				setq (message,"goalcal");
+				setq (menu,"open");
+				setq (message,"visible");
+				deq ();
+		}
+		void INTRO2Ev(){
+				setq (gsm,"changeMessageInc",Type.SYSTEM);
+				setq (message, "hide");
+				setq (menu, "close");
+				setq (message,"goalcal");
+				setq (menu,"open");
+				setq (message,"visible");
+				deq ();
+		}
+		void INTRO3Ev(){
+				setq (gsm,"changeMessageInc",Type.SYSTEM);
+				setq (message, "hide");
+				setq (menu, "close");
+				setq (message,"goalcal");
+				setq (menu,"open");
+				setq (message,"visible");
+				deq ();
+		}
 		void gamestartEv(){
 				setq (nowload,"hide",Type.PARALLEL);
 				setq (batnum,"init");
-				NEXTEv ();
+				INTRO1Ev ();
 				//deq ();
+		}
+		void toGameEv(){
+				NEXTEv ();
 		}
 		//optionEv
 		void optionbuttonEv(){

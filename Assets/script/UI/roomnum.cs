@@ -11,6 +11,7 @@ public class roomnum : MonoBehaviour {
 	void Start () {
 				roomnumrender = this.gameObject.GetComponent<SpriteRenderer> ();
 				roomnumrender.sprite = roomnums [0];
+				roomnumrender.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,7 @@ public class roomnum : MonoBehaviour {
 	}
 
 		void changenum(int floor){
+				roomnumrender.enabled = true;
 				Debug.Log ("ChangeRoomNum to " + floor);
 				if (floor == 13) {
 						roomnumrender.enabled = false;

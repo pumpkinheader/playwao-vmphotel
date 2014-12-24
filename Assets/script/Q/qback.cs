@@ -5,7 +5,7 @@ public class qback : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+				iTween.ColorTo (this.gameObject, iTween.Hash ("a", 0f, "time", 0.01f));
 	}
 	
 	// Update is called once per frame

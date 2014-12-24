@@ -100,8 +100,17 @@ public class Message: MonoBehaviour {
 				//GameSceneManager.remain--;
 				switch(m){
 				case MessageState.INTROTOGAME:
-						text = "ようこそおいでくださいました・・・・";
-						line = 4.0f;
+						text = "ヴァンパイアホテルへ\n" +
+						                               "ようこそ...\n" +
+						                               "ご案内の前に、当館の規約を\n" +
+						                               "ご確認くださいませ。\n";
+						line = 10.0f;
+						break;
+				case MessageState.INTROTOGAME2:
+						text = "１．１階ごとに謎を１つ解く\n" +
+						                               "２．答えはすべてひらがなで\n" +
+						                               "３．困ったら右上のボタンを\n";
+						line = 8.0f;
 						break;
 				case MessageState.CORRECT:
 						text = "正解！\n次の階へ。";//CORRECT

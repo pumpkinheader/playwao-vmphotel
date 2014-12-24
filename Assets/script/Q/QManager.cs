@@ -10,6 +10,7 @@ public class QManager : MonoBehaviour {
 		public Sprite[] qs = new Sprite[12];
 
 		private GameObject[] qbacks = new GameObject[2];
+		private SpriteRenderer[] qbacksrender = new SpriteRenderer[2];
 		private float qbackheight;
 		private Vector3 originalPos;
 
@@ -29,7 +30,9 @@ public class QManager : MonoBehaviour {
 				qrenderer.sprite = qs [0];
 
 				qbacks [0] = GameObject.Find ("qtop");
+				qbacksrender [0] = qbacks [0].GetComponent<SpriteRenderer> ();
 				qbacks [1] = GameObject.Find ("qbottom");
+				qbacksrender [1] = qbacks [1].GetComponent<SpriteRenderer> ();
 				qbackheight = qbacks [0].GetComponent<SpriteRenderer> ().sprite.rect.size.y;
 
 				int j = 1;
@@ -53,6 +56,10 @@ public class QManager : MonoBehaviour {
 				foreach(BoxCollider2D pc in collis){
 						pc.enabled = false;
 				}
+				qbacksrender [0].enabled = false;
+				iTween.ColorTo (qbacks[0], iTween.Hash ("a", 0.0f, "time", 0.01f));
+				qbacksrender [1].enabled = false;
+				iTween.ColorTo (qbacks[1], iTween.Hash ("a", 0.0f, "time", 0.01f));
 	}
 	
 	// Update is called once per frame
@@ -72,6 +79,8 @@ public class QManager : MonoBehaviour {
 						now = GameSceneManager.floorNum;
 						qrenderer.sprite = qs[now-1];
 				}
+				qbacksrender [0].enabled = true;
+				qbacksrender [1].enabled = true;
 				foreach (GameObject tg in qbacks) {
 						iTween.ColorTo (tg, iTween.Hash ("a", 1.0f, "easetype", "easeincirc", "time", 0.8f));
 				}

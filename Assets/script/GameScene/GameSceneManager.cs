@@ -21,8 +21,11 @@ public class GameSceneManager : MonoBehaviour {
 		public static int thcounter=0;//defalut 0
 		public static int remain = 3;//default 3
 
-
 		public enum state{
+				INTRO1 = -3,
+				INTRO2 = -2,
+				INTRO3 = -1,
+				INTROEND = 0,
 				Q=1,
 				ANSWER=2,
 				RESULT=3,
@@ -48,6 +51,7 @@ public class GameSceneManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 				gstate = state.NEXT;
+				gstate = state.INTRO1;
 				gm = GameObject.Find ("GameManager");
 				gmscript = gm.GetComponent<GameManager> ();
 				gmscript.gsm = this.gameObject;
@@ -67,6 +71,7 @@ public class GameSceneManager : MonoBehaviour {
 						if(this.fromContinue)load ();
 						Debug.Log ("gamestart @ "+floorNum+"floor");
 						setTouch(false);
+						changeMessage (MessageState.INTROTOGAME);
 						gm.SendMessage ("gamestartEv");
 				}
 	}
@@ -84,7 +89,10 @@ public class GameSceneManager : MonoBehaviour {
 								/*} else if (name == "closeth") {
 								gm.SendMessage (name + "Ev");*/
 						} else {
-								gm.SendMessage (gstate.ToString ("F") + "Ev");
+								if (gstate == state.INTROEND)
+										gm.SendMessage ("toGameEv");
+								else
+										gm.SendMessage (gstate.ToString ("F") + "Ev");
 						}
 
 				} else {

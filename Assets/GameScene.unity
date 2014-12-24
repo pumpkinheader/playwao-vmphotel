@@ -4383,9 +4383,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00d3c1666095d40b0ae69b9b2e6a27d0, type: 3}
   - {fileID: 21300000, guid: bd68c8fd8b8384969835fa7fcb541348, type: 3}
   - {fileID: 21300000, guid: d1a2619e49a574b3592f6b20a73c89e7, type: 3}
-  - {fileID: 21300000, guid: eb6b04e6b8e5b4888bb7b9bcd9dcdd9f, type: 3}
+  - {fileID: 21300000, guid: f184d0dec08fa4ee78b9604fafde1f8d, type: 3}
   - {fileID: 21300000, guid: 74d728317b8ea4a4f913f7d812a62f22, type: 3}
-  - {fileID: 21300000, guid: 594e6cfa94ce34173bf7cf185c5db962, type: 3}
+  - {fileID: 21300000, guid: e64a5f781ed6a4e19aa3ac7675128cd5, type: 3}
   - {fileID: 21300000, guid: db8c41dc6f5a14129901d02950be53fc, type: 3}
   - {fileID: 21300000, guid: 8e71e5fbad447468e81b9a07a5cdcc0d, type: 3}
   - {fileID: 21300000, guid: e178ea201417f439e8e14dd450596800, type: 3}
@@ -4668,7 +4668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c469d9be4dfd745f29a5a92567a62f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFloorNum: 13
+  debugFloorNum: 1
   startEventOn: 1
   fromContinue: 0
   GAMEEND: 0
