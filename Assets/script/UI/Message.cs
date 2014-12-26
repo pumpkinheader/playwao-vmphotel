@@ -112,6 +112,10 @@ public class Message: MonoBehaviour {
 						                               "３．困ったら右上のボタンを\n";
 						line = 8.0f;
 						break;
+				case MessageState.INTROTOGAME3:
+						text = "それでは、上へ参りましょう...";
+						line = 4.0f;
+						break;
 				case MessageState.CORRECT:
 						text = "正解！\n次の階へ。";//CORRECT
 						line = 4.0f;
