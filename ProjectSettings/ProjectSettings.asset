@@ -53,8 +53,10 @@ PlayerSettings:
   xboxEnableKinect: 0
   xboxEnableKinectAutoTracking: 0
   xboxEnableFitness: 0
+  visibleInBackground: 0
   macFullscreenMode: 2
   d3d9FullscreenMode: 1
+  d3d11ForceExclusiveMode: 0
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -92,6 +94,9 @@ PlayerSettings:
   iPhoneSplashScreen: {fileID: 0}
   iPhoneHighResSplashScreen: {fileID: 0}
   iPhoneTallHighResSplashScreen: {fileID: 0}
+  iPhone47inSplashScreen: {fileID: 0}
+  iPhone55inPortraitSplashScreen: {fileID: 0}
+  iPhone55inLandscapeSplashScreen: {fileID: 0}
   iPadPortraitSplashScreen: {fileID: 0}
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
@@ -106,9 +111,24 @@ PlayerSettings:
     m_Icons:
     - m_Icon: {fileID: 0}
       m_Size: 128
+  - m_BuildTarget: Android
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: 2237ea30ce7dc449ebcfb1fea42881b8, type: 3}
+      m_Size: 192
+    - m_Icon: {fileID: 2800000, guid: c7fab0ff708384432b40229c7ab0539e, type: 3}
+      m_Size: 144
+    - m_Icon: {fileID: 2800000, guid: 44b4f326e8de745588f8c44dd22ae0ec, type: 3}
+      m_Size: 96
+    - m_Icon: {fileID: 2800000, guid: 44b4f326e8de745588f8c44dd22ae0ec, type: 3}
+      m_Size: 72
+    - m_Icon: {fileID: 2800000, guid: deefe4a8bc2044afaa5c4f5ffa9ccd39, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: ae7b650f567b948bb878788a47946f78, type: 3}
+      m_Size: 36
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
+  locationUsageDescription: 
   XboxTitleId: 
   XboxImageXexPath: 
   XboxSpaPath: 
