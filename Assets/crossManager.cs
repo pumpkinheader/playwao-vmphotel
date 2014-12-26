@@ -11,7 +11,7 @@ public class crossManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 				GameSceneManager.gmscript.cross = this.gameObject;
-				cross_s = GameObject.Find ("cross_r");
+				cross_s = GameObject.Find ("cross_s");
 				sr_s = cross_s.GetComponent<SpriteRenderer> ();
 				sr_s.enabled = false;
 				iTween.ColorTo (cross_s,iTween.Hash("a",0f,"time",0.01f));
