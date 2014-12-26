@@ -208,6 +208,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						keyview = false;
 						setq (menu,"bottomon");
 				}
+				if(eleon){
+						setq (menu,"bottomon");
+				}
 				setq (menu,"keyoff");
 				setq (message, "hide",Type.PARALLEL);
 				setq (gui,"hide",Type.PARALLEL);
@@ -532,29 +535,34 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				deq ();
 		}
 		public GameObject timebar;
+		private bool eleon = false;
 		void ELEPANELEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
-				setq (message,"visible");
-				setq (fogall,"tored",Type.SYSTEM);
-				setq (timer,"waitasecond");
-				setq (timer,"waitasecond");
-				setq (message,"hide");
-				setq (menu,"close");
-				setq (menu,"hide");
-				setq (menu,"bottomoff");
-				setq (fogall,"pingpong");
-				setq (q,"onCamera",Type.SYSTEM);
-				setq (q,"endmode",Type.SYSTEM);
-				setq (timebar,"visible");
-				setq (timebar,"timerstart");
-				setq (elepanel,"visible");
+				if (!eleon) {
+						eleon = true;
+						setq (message, "visible");
+						setq (fogall, "tored", Type.SYSTEM);
+						setq (timer, "waitasecond");
+						setq (timer, "waitasecond");
+						setq (message, "hide");
+						setq (menu, "close");
+						setq (menu, "hide");
+						setq (menu, "bottomoff");
+						setq (fogall, "pingpong");
+						setq (q, "onCamera", Type.SYSTEM);
+						setq (q, "endmode", Type.SYSTEM);
+						setq (timebar, "visible");
+						setq (timebar, "timerstart");
+						setq (elepanel, "visible");
 
-				//setq (fogall, "tored");
-				//setq (blood,"start");
-				setq (door,"shaketh",Type.PARALLEL);
-				setq (timer, "start");
-				//setq (this.gameObject,"timeupEv");
-				deq ();
+						//setq (fogall, "tored");
+						//setq (blood,"start");
+						setq (door, "shaketh", Type.PARALLEL);
+						setq (timer, "start");
+						//setq (this.gameObject,"timeupEv");
+						deq ();
+				} else
+						Debug.Log ("ELEOn");
 		}
 		public GameObject cross;
 		public GameObject overlayer;

@@ -96,14 +96,16 @@ public class BatManager : MonoBehaviour {
 		int c=0;
 		void patapataup(int type){
 				c++;
-				if (c == 4) {
+				if (c == 1) {
+						deq ();
+				}
+				else if (c == 4) {
 						shakewing (1);
 						c = 0;
 						return;
 				}
 				iTween.RotateTo (wingL, iTween.Hash ("z", 361f, "time", 0.04f, "easetype", "easeinsine","oncompletetarget",gameObject,"oncomplete","patapatadown"));
 				iTween.RotateTo (wingR,iTween.Hash("z",-1f,"time",0.04f,"easetype","easeinsine"));
-				deq ();
 		}
 		void patapatadown(){
 				iTween.RotateTo (wingL, iTween.Hash ("z", 360f, "time", 0.2f, "easetype", "easeoutsine","oncompletetarget",gameObject,"oncomplete","patapataup","oncompleteparams",1));
