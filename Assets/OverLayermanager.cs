@@ -3,8 +3,8 @@ using System.Collections;
 
 public class OverLayermanager : MonoBehaviour {
 
-		GameObject whiteObj = new GameObject ();
-		SpriteRenderer sr = new SpriteRenderer();
+		GameObject whiteObj;
+		SpriteRenderer sr;
 	// Use this for initialization
 	void Start () {
 				GameSceneManager.gmscript.overlayer = gameObject;

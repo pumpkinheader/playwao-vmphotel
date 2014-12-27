@@ -20,10 +20,10 @@ public class Timer : MonoBehaviour {
 	}
 
 		void start(){
-				limit = 10.0f;
+				limit = 99.0f;
 				GameSceneManager.gm.SendMessage ("setTouch",true);
 				iTween.ValueTo (this.gameObject,iTween.Hash("from",0,"to",200,"time",limit,"oncompletetarget",this.gameObject,"oncomplete","end","onupdate","empFunc"));
-				//deq ();
+				deq ();
 		}
 
 		void end(){

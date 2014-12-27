@@ -3,15 +3,18 @@ using System.Collections;
 
 public class crossManager : MonoBehaviour {
 
-		GameObject cross_s = new GameObject();
-		SpriteRenderer sr_s= new SpriteRenderer();
+		GameObject cross_s;
+		SpriteRenderer sr_s;
 
 
-
+		void Awake(){
+				cross_s = new GameObject ();
+				cross_s = GameObject.Find ("cross_s");
+		}
 	// Use this for initialization
 	void Start () {
+				sr_s = new SpriteRenderer ();
 				GameSceneManager.gmscript.cross = this.gameObject;
-				cross_s = GameObject.Find ("cross_s");
 				sr_s = cross_s.GetComponent<SpriteRenderer> ();
 				sr_s.enabled = false;
 				iTween.ColorTo (cross_s,iTween.Hash("a",0f,"time",0.01f));

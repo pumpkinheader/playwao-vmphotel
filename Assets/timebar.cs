@@ -4,8 +4,8 @@ using System.Collections;
 public class timebar : MonoBehaviour {
 
 		SpriteRenderer sr;
-		GameObject[] tmbs = new GameObject[3];
-		SpriteRenderer[] tmbsrs = new SpriteRenderer[3];
+		GameObject[] tmbs = new GameObject[4];
+		SpriteRenderer[] tmbsrs = new SpriteRenderer[4];
 
 		public Sprite[] numbers = new Sprite[10];
 
@@ -16,7 +16,8 @@ public class timebar : MonoBehaviour {
 
 				tmbs[0] = GameObject.Find ("timebar_2");
 				tmbs [1] = GameObject.Find ("timebarbat");
-				tmbs [2] = GameObject.Find ("battimernum");
+				tmbs [2] = GameObject.Find ("battimernum_1");
+				tmbs [3] = GameObject.Find ("battimernum_10");
 				int i = 0;
 
 				foreach(GameObject go in tmbs){
@@ -25,7 +26,8 @@ public class timebar : MonoBehaviour {
 						tmbsrs [i].renderer.enabled = false;
 						i++;
 				}
-				tmbsrs [2].sprite = numbers [8];
+				tmbsrs [2].sprite = numbers [9];
+				tmbsrs [3].sprite = numbers [9];
 
 	}
 	
@@ -51,13 +53,15 @@ public class timebar : MonoBehaviour {
 				}
 				deq ();
 		}
+		int limit = 99;
 		void timerstart(int type){
 				float goal = -635f;
-				iTween.MoveTo (tmbs[0],iTween.Hash("y",goal,"time",10f,"easetype",iTween.EaseType.easeInSine));
-				iTween.MoveTo (tmbs[1],iTween.Hash("y",goal+265f,"time",10f,"easetype",iTween.EaseType.easeInSine));
-				iTween.MoveTo (tmbs[2],iTween.Hash("y",goal + 270f,"time",10f,"easetype",iTween.EaseType.easeInSine));
-				iTween.ValueTo (gameObject,iTween.Hash("from",0,"to",9,"time",10f,
-						"oncompletetarget",this.gameObject,"oncomplete","deq","onupdate","changeNum"));
+				iTween.MoveTo (tmbs[0],iTween.Hash("y",goal,"time",limit,"easetype",iTween.EaseType.easeInSine));
+				iTween.MoveTo (tmbs[1],iTween.Hash("y",goal+265f,"time",limit,"easetype",iTween.EaseType.easeInSine));
+				iTween.MoveTo (tmbs[2],iTween.Hash("y",goal + 270f,"time",limit,"easetype",iTween.EaseType.easeInSine));
+				iTween.MoveTo (tmbs[3],iTween.Hash("y",goal + 270f,"time",limit,"easetype",iTween.EaseType.easeInSine));
+				iTween.ValueTo (gameObject,iTween.Hash("from",0,"to",limit,"time",limit,
+						/*"oncompletetarget",this.gameObject,"oncomplete","deq",*/"onupdate","changeNum"));
 				deq ();
 		}
 
@@ -69,7 +73,9 @@ public class timebar : MonoBehaviour {
 				//Debug.Log ("spent "+i+ " seconds");
 				if (now != i) {
 						now = i;
-						tmbsrs [2].sprite = numbers[8 - now];
+						int value = limit - now;
+						tmbsrs [2].sprite = numbers[value%10];
+						tmbsrs [3].sprite = numbers [value / 10];
 				}
 		}
 }

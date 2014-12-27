@@ -96,10 +96,10 @@ public class BatManager : MonoBehaviour {
 		int c=0;
 		void patapataup(int type){
 				c++;
-				if (c == 1) {
+				/*if (c == 1) {
 						deq ();
 				}
-				else if (c == 4) {
+				else */if (c == 4) {
 						shakewing (1);
 						c = 0;
 						return;

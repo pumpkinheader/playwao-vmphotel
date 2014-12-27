@@ -209,6 +209,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						setq (menu,"bottomon");
 				}
 				if(eleon){
+						setq (elepanel,"hide");
 						setq (menu,"bottomon");
 				}
 				setq (menu,"keyoff");
@@ -536,6 +537,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 		public GameObject timebar;
 		private bool eleon = false;
+		void setTouchTrue(){
+				setTouch (true);
+		}
 		void ELEPANELEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				if (!eleon) {
@@ -558,11 +562,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						//setq (fogall, "tored");
 						//setq (blood,"start");
 						setq (door, "shaketh", Type.PARALLEL);
+						setq (gameObject,"setTouchTrue",Type.SYSTEM);
 						setq (timer, "start");
 						//setq (this.gameObject,"timeupEv");
 						deq ();
-				} else
+				} else {
+						setq (message, "hide");
+						setq (option,"hide",Type.PARALLEL);
+						setq (list, "hide");
+						setq (menu, "close");
+						setq (menu, "hide",Type.PARALLEL);
+						setq (elepanel, "visible");
 						Debug.Log ("ELEOn");
+						deq ();
+				}
 		}
 		public GameObject cross;
 		public GameObject overlayer;
@@ -577,6 +590,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
 				//setq (cross, "hide");
+				setq (message, "hide");
+				setq (option,"hide",Type.PARALLEL);
+				setq (list, "hide");
+				setq (menu, "close");
+				setq (menu, "hide",Type.PARALLEL);
+
 				setq (elepanel,"hide");
 				setq (elepanel,"checkbutton");
 				setq (door,"stop");
