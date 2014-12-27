@@ -55,7 +55,7 @@ public class timebar : MonoBehaviour {
 		}
 		int limit = 99;
 		void timerstart(int type){
-				float goal = -635f;
+				float goal = -640f;
 				iTween.MoveTo (tmbs[0],iTween.Hash("y",goal,"time",limit,"easetype",iTween.EaseType.easeInSine));
 				iTween.MoveTo (tmbs[1],iTween.Hash("y",goal+265f,"time",limit,"easetype",iTween.EaseType.easeInSine));
 				iTween.MoveTo (tmbs[2],iTween.Hash("y",goal + 270f,"time",limit,"easetype",iTween.EaseType.easeInSine));
