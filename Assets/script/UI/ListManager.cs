@@ -50,7 +50,7 @@ public class ListManager : MonoBehaviour {
 		void goalcal(int type){
 				//float f = Mathf.Log ((float)Screen.width/420f);
 				//Debug.Log ("e is "+ f);
-				line = (float)(GameSceneManager.floorNum) * 2.0f;// - f * 12.0f;
+				line = (float)(GameSceneManager.floorNum) * 4.0f;// - f * 12.0f;
 				//Debug.Log ("floor is " + GameSceneManager.floorNum);
 				int i = GameSceneManager.floorNum-1;
 				for(int j = 0;j<i;j++) text += answers[j];
@@ -58,7 +58,7 @@ public class ListManager : MonoBehaviour {
 				goal = fontsize * line/2.0f;
 				Debug.Log ("fontsize : " + fontsize);
 				Debug.Log ("goal : "+ goal);
-				windowheight = fontsize * line * 1.0f;
+				windowheight = fontsize * line * 2.0f;
 				GameSceneManager.movetogoallist.y = windowheight/2.0f;
 				deq ();
 		}
@@ -81,18 +81,19 @@ public class ListManager : MonoBehaviour {
 		void fc(int windowID){}
 		private string[] answers = new string[] 
 		{
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n",
-				"1003:ANSWER\n",
-				"103:ANSWER\n",
-				"103:ANSWER\n"
+				"105 :いいたいほうだい\n",
+				"     ￣\n",
+				"203 :りべんじ\n","     ￣\n",
+				"304 :ぐらいだー\n","     ￣\n",
+				"403 :ちまなこ\n","     ￣\n",
+				"501 :どぐう\n","     ￣\n",
+				"603 :あほうどり\n","     ￣\n",
+				"703 :ちょぞうこ\n","     ￣\n",
+				"804 :かりぶかい\n","     ￣\n",
+				"902 :のひつじ\n","     ￣\n",
+				"1005:ひえらるきー\n","     ￣\n",
+				"1103:つちだんご\n","     ￣\n",
+				"1202:ぎしんあんき\n","     ￣\n"
 		};
 				
 }

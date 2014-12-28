@@ -26,6 +26,7 @@ public class elepanebutton : MonoBehaviour {
 	void Update () {
 	
 	}
+		private bool crosson = false;
 
 		void touched(){
 				num++;
@@ -36,13 +37,16 @@ public class elepanebutton : MonoBehaviour {
 				else if (num == 0)
 						onbutton [iam] = false;
 
-				if(onbutton [3] &&
-						onbutton [11] &&
-						onbutton [5] &&
-						onbutton [6] &&
-						onbutton [7] &&
-						onbutton [8]){
-						GameSceneManager.gm.SendMessage ("crossEv");
+				if (!crosson) {
+						if (onbutton [3] &&
+						 onbutton [11] &&
+						 onbutton [5] &&
+						 onbutton [6] &&
+						 onbutton [7] &&
+						 onbutton [8]) {
+								crosson = true;
+								GameSceneManager.gm.SendMessage ("crossEv");
+						}
 				}
 		}
 

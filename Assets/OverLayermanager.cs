@@ -7,11 +7,13 @@ public class OverLayermanager : MonoBehaviour {
 		SpriteRenderer sr;
 	// Use this for initialization
 	void Start () {
+				whiteObj = new GameObject ();
+				sr = new SpriteRenderer ();
 				GameSceneManager.gmscript.overlayer = gameObject;
 				whiteObj = GameObject.Find ("white");
 				sr = whiteObj.GetComponent<SpriteRenderer> ();
 				sr.enabled = false;
-				iTween.ColorTo (gameObject,iTween.Hash("a",0f,"time",0.01f));
+				iTween.ColorTo (whiteObj,iTween.Hash("a",0f,"time",0.01f));
 	}
 	
 	// Update is called once per frame
@@ -23,7 +25,7 @@ public class OverLayermanager : MonoBehaviour {
 		void visible(int type){
 				sr.enabled = true;
 				if (type == 1) {
-						iTween.ColorTo (gameObject, iTween.Hash ("a", 1f, "time", 3f, "easetype", iTween.EaseType.easeInExpo,"oncompletetarget",gameObject,"oncomplete","imhide"));
+						iTween.ColorTo (whiteObj, iTween.Hash ("a", 0.9f, "time", 3f, "easetype", iTween.EaseType.easeInExpo,"oncompletetarget",gameObject,"oncomplete","imhide"));
 				} else {
 						//iTween.ColorTo (gameObject, iTween.Hash ("a", 1f, "time", 3f, "easetype", iTween.EaseType.easeInExpo));
 						deq ();
@@ -32,7 +34,7 @@ public class OverLayermanager : MonoBehaviour {
 		void hide(int type){
 		}
 		void imhide(){
-				iTween.ColorTo (gameObject,iTween.Hash("a", 0f, "time", 0.4f,"oncompletetarget",gameObject,"oncomplete","deq"));
+				iTween.ColorTo (whiteObj,iTween.Hash("a", 0f, "time", 0.4f,"oncompletetarget",gameObject,"oncomplete","deq"));
 				//deq ();
 		}
 
