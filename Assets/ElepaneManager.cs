@@ -5,6 +5,7 @@ public class ElepaneManager : MonoBehaviour {
 
 
 		public GameObject[] buttons = new GameObject[15];
+		public static bool crosson = false;
 	// Use this for initialization
 	void Start () {
 				GameSceneManager.gmscript.elepanel = this.gameObject;
