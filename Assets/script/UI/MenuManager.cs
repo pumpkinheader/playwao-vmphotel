@@ -194,6 +194,8 @@ public class MenuManager : MonoBehaviour {
 
 
 		void close(int type){
+				if (hided)
+						type = 0;
 				foreach (GameObject go in menus)
 						iTween.ColorTo (go,iTween.Hash("a", 0.0f, "easetype", "easeincirc", "time", 0.8f));
 				if (type == 1) {
@@ -301,12 +303,14 @@ public class MenuManager : MonoBehaviour {
 				deq ();
 		}
 
-
+		private bool hided = false;
 		void hide(int type){
+				hided = true;
 				menucamera.camera.enabled = false;
 				deq ();
 		}
 		void visible(int type){
+				hided = false;
 				menucamera.camera.enabled = true;
 				//deq ();
 		}
