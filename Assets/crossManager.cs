@@ -27,19 +27,29 @@ public class crossManager : MonoBehaviour {
 
 		void visible(int type){
 				sr_s.enabled = true;
-				//iTween.ColorTo (cross_r,iTween.Hash("a",0.9f,"time",0.6f,"easetype",iTween.EaseType.easeOutExpo));
-				//iTween.ColorTo (cross_c,iTween.Hash("a",0.9f,"time",0.6f,"easetype",iTween.EaseType.easeOutExpo));
-				//iTween.ColorTo(cross_c,iTween.Hash("a",1f,"delay",0.4f,"looptype","pingpong","easetype","easeincirc","time",0.8f));
-				//iTween.ColorTo(cross_r,iTween.Hash("a",1f,"delay",0.4f,"looptype","pingpong","easetype","easeincirc","time",0.8f));
-				iTween.ColorTo(cross_s,iTween.Hash("a",1f,"delay",0.4f,"easetype","easeincirc","time",2.6f,"oncompletetarget",gameObject,"oncomplete","hide"));
+				if(type == 1){
+						iTween.ColorTo(cross_s,iTween.Hash("a",1f,"delay",0.4f,"easetype","easeincirc","time",2.6f,"oncompletetarget",gameObject,"oncomplete","deq"));
+				}else{
+						iTween.ColorTo(cross_s,iTween.Hash("a",1f,"delay",0.4f,"easetype","easeincirc","time",2.6f));
+						deq ();
+				}
+		}
+		void hide(int type){
+				if (type == 1) {
+						iTween.ColorTo (cross_s, iTween.Hash ("a", 0f, "time", 1.8f,"oncompletetarget",gameObject,"oncomplete","disable","oncompleteparams",type));
+				} else {
+						deq ();
+						iTween.ColorTo (cross_s, iTween.Hash ("a", 0f, "time", 1.8f,"oncompletetarget",gameObject,"oncomplete","disable","oncompleteparams",type));
+				}		
+		}
+		void disable(int type){
+				sr_s.enabled = false;
+				if(type==1)deq ();
+		}
+		void pingpong(int type){
+				iTween.ColorTo (cross_s, iTween.Hash ("a", 0f, "time", 0.8f,"looptype",iTween.LoopType.pingPong));
 				deq ();
 		}
-		void hide(){
-				sr_s.enabled = false;
-				iTween.ColorTo (cross_s,iTween.Hash("a",0f,"time",0.01f));
-				//deq ();
-		}
-
 		void deq(){
 				GameSceneManager.gm.SendMessage ("deq");
 		}

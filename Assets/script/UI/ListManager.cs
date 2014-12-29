@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ListManager : MonoBehaviour {
 
-		private string text = "\nA N S W E R L I S T \n000:<b>奇</b>跡ではなく<b>偶</b>然だった\n";
+		private string text = "\nA N S W E R L I S T \n\n000:<b>奇</b>跡ではなく<b>偶</b>然だった\n\n";
 		public bool ongui=false;
 		public GUISkin cinema;
 
@@ -41,7 +41,7 @@ public class ListManager : MonoBehaviour {
 				ongui = false;
 				deq ();
 				iTween.ValueTo (this.gameObject,iTween.Hash("from",1.0f,"to",0.0f,"time",0.01f,"onupdate","colorupdate"));
-				text = "A N S W E R L I S T \n000:<b>奇</b>跡ではなく<b>偶</b>然だった\n";
+				text = "000 :<b>奇</b>跡ではなく<b>偶</b>然だった\n\n";
 		}
 		void colorupdate(float value){
 				tempc.a = value;
@@ -50,7 +50,7 @@ public class ListManager : MonoBehaviour {
 		void goalcal(int type){
 				//float f = Mathf.Log ((float)Screen.width/420f);
 				//Debug.Log ("e is "+ f);
-				line = (float)(GameSceneManager.floorNum) * 4.0f;// - f * 12.0f;
+				line = (float)(GameSceneManager.floorNum) * 2.0f;// - f * 12.0f;
 				//Debug.Log ("floor is " + GameSceneManager.floorNum);
 				int i = GameSceneManager.floorNum-1;
 				for(int j = 0;j<i;j++) text += answers[j];
@@ -81,19 +81,18 @@ public class ListManager : MonoBehaviour {
 		void fc(int windowID){}
 		private string[] answers = new string[] 
 		{
-				"105 :いいたいほうだい\n",
-				"     ￣\n",
-				"203 :りべんじ\n","     ￣\n",
-				"304 :ぐらいだー\n","     ￣\n",
-				"403 :ちまなこ\n","     ￣\n",
-				"501 :どぐう\n","     ￣\n",
-				"603 :あほうどり\n","     ￣\n",
-				"703 :ちょぞうこ\n","     ￣\n",
-				"804 :かりぶかい\n","     ￣\n",
-				"902 :のひつじ\n","     ￣\n",
-				"1005:ひえらるきー\n","     ￣\n",
-				"1103:つちだんご\n","     ￣\n",
-				"1202:ぎしんあんき\n","     ￣\n"
+				"105 :いいたい<b>ほ</b>うだい　　　\n"+"     ￣　　　　　　　　　　\n",
+				"203 :りべ<b>ん</b>じ　　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"304 :ぐらい<b>だ</b>ー　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"403 :ちま<b>な</b>こ　　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"501 :<b>ど</b>ぐう　　　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"603 :あほ<b>う</b>どり　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"703 :ちょ<b>ぞ</b>うこ　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"804 :かりぶ<b>か</b>い　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"902 :の<b>ひ</b>つじ　　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"1005:ひえらる<b>き</b>ー　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"1103:つち<b>だ</b>んご　　　　　　\n"+"     ￣　　　　　　　　　　\n",
+				"1202:ぎ<b>し</b>んあんき　　　　　\n"+"     ￣　　　　　　　　　　\n"
 		};
 				
 }

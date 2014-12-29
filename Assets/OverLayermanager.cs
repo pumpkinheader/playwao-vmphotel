@@ -25,21 +25,28 @@ public class OverLayermanager : MonoBehaviour {
 		void visible(int type){
 				sr.enabled = true;
 				if (type == 1) {
-						iTween.ColorTo (whiteObj, iTween.Hash ("a", 0.9f, "time", 3f, "easetype", iTween.EaseType.easeInExpo,"oncompletetarget",gameObject,"oncomplete","imhide"));
+						iTween.ColorTo (whiteObj, iTween.Hash ("a", 1.0f, "time", 3f, "easetype", iTween.EaseType.easeInExpo,"oncompletetarget",gameObject,"oncomplete","deq"));
 				} else {
-						//iTween.ColorTo (gameObject, iTween.Hash ("a", 1f, "time", 3f, "easetype", iTween.EaseType.easeInExpo));
+						iTween.ColorTo (whiteObj, iTween.Hash ("a", 1.0f, "time", 3f, "easetype", iTween.EaseType.easeInExpo));
 						deq ();
 				}
 		}
 		void hide(int type){
+				if (type == 1) {
+						iTween.ColorTo (whiteObj,iTween.Hash("a", 0f, "time", 2.4f,"delay",0.2f,"oncompletetarget",gameObject,"oncomplete","disable","oncompleteparams",type));
+				} else {
+						deq();
+						iTween.ColorTo (whiteObj,iTween.Hash("a", 0f, "time", 2.4f,"delay",0.2f,"oncompletetarget",gameObject,"oncomplete","disable","oncompleteparams",type));
+				}
+
 		}
-		void imhide(){
-				iTween.ColorTo (whiteObj,iTween.Hash("a", 0f, "time", 0.4f,"oncompletetarget",gameObject,"oncomplete","deq"));
-				//deq ();
+		void disable(int type){
+				if (type == 1)deq ();
+				sr.enabled = false;
 		}
 
 		void deq(){
-				sr.enabled = false;
+				//sr.enabled = false;
 				GameSceneManager.gm.SendMessage ("deq");
 		}
 }

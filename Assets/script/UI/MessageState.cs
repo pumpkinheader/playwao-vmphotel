@@ -27,6 +27,7 @@ public enum MessageState
 		preEle1,
 		preEle2,
 		preEle3,
+		GUWAAAAAAAA,
 		NOCROSS,
 		NOCROSSTEST,
 		ONENOKEY,

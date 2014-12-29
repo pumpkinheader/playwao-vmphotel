@@ -185,6 +185,9 @@ public class GameSceneManager : MonoBehaviour {
 		void setmessageBlood(){
 				changeMessage (MessageState.ELE);
 		}
+		void setmessageDefeat(){
+				changeMessage (MessageState.GUWAAAAAAAA);
+		}
 		void changeMessageInc(){
 				Debug.Log ("changeMessage from"+m.ToString("F")+" to "+(++m).ToString("F"));
 		}

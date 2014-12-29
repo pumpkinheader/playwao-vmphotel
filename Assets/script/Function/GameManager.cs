@@ -580,8 +580,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		public GameObject cross;
 		public GameObject overlayer;
 		void crossEv(){
-				setq (cross,"visible");
+				setq (gsm,"setmessageDefeat",Type.SYSTEM);
+				setq (message,"goalcal");
+				setq (cross,"visible",Type.PARALLEL);
 				setq (overlayer,"visible");
+				setq (message, "visible");
+				setq (timer,"waitasecond");
+				setq (message, "hide");
+				setq (overlayer,"hide",Type.PARALLEL);
+				setq (cross,"pingpong");
 				deq ();
 		}
 
@@ -595,6 +602,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (list, "hide");
 				setq (menu, "close");
 				setq (menu, "hide",Type.PARALLEL);
+
+				setq (overlayer,"hide",Type.PARALLEL);
+				setq (cross, "hide", Type.PARALLEL);
 
 				setq (elepanel,"hide");
 				setq (elepanel,"checkbutton");

@@ -178,6 +178,13 @@ public class Message: MonoBehaviour {
 						iTween.ValueTo (this.gameObject,iTween.Hash("from",1.0f,"to",0.0f,"time",0.01f,"onupdate","colorupdate"));
 						text = "「チヲ…ノマセロ！！！」";
 						break;
+				case MessageState.GUWAAAAAAAA:
+						tempc = new Color (defc.r, defc.g, defc.b, 0f);
+						cinema.window.normal.textColor = tempc;
+						iTween.ValueTo (this.gameObject, iTween.Hash ("from", 1.0f, "to", 0.0f, "time", 0.01f, "onupdate", "colorupdate"));
+						text = "「グワァアア・・・！！」";
+						line = 4.0f;
+						break;
 				case MessageState.NOCROSS:
 						tempc = new Color (1, 1, 1, 0);
 						cinema.window.normal.textColor = tempc;
