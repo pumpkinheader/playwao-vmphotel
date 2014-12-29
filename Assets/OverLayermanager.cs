@@ -21,6 +21,15 @@ public class OverLayermanager : MonoBehaviour {
 	
 	}
 
+		void visibleslow(int type){
+				sr.enabled = true;
+				if (type == 1) {
+						iTween.ColorTo (whiteObj, iTween.Hash ("a", 1.0f, "time", 5.6f, "easetype", iTween.EaseType.easeInExpo,"oncompletetarget",gameObject,"oncomplete","deq"));
+				} else {
+						iTween.ColorTo (whiteObj, iTween.Hash ("a", 1.0f, "time", 5.6f, "easetype", iTween.EaseType.easeInExpo));
+						deq ();
+				}
+		}
 
 		void visible(int type){
 				sr.enabled = true;

@@ -4715,10 +4715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c469d9be4dfd745f29a5a92567a62f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFloorNum: 13
+  debugFloorNum: 2
   startEventOn: 1
   fromContinue: 0
   GAMEEND: 0
+  noAnswerCheck: 0
 --- !u!1 &1513794901
 GameObject:
   m_ObjectHideFlags: 0

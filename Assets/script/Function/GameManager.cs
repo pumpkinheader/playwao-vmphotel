@@ -310,6 +310,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 		void NEXTEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
+				if (GameSceneManager.GAMEEND) {
+						setq (message, "hide");
+						setq (menu, "close",Type.PARALLEL);
+						setq (door,"closeth");
+						setq (fogall,"visible");
+						GAMEENDEv ();
+						return;
+				}
 				setq (gsm,"floorchange");
 				setq (gsm,"stateUp",Type.SYSTEM);
 				setq (q,"next",Type.SYSTEM);
@@ -652,6 +660,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (bc_end,"scroll");
 				setq (message,"visible");
 		}*/
+		void GAMEENDEv(){
+				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
+				setq (overlayer,"visibleslow");
+				setq (gameObject,"toTitle");
+				deq ();
+		}
+		void toTitle(){
+				Application.LoadLevel ("TitleScene");
+		}
 		void NOCROSSEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");

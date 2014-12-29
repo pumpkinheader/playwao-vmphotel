@@ -8,12 +8,13 @@ public class GameSceneManager : MonoBehaviour {
 		public int debugFloorNum;
 		public bool startEventOn=true;//屈辱のフラグ管理
 		public bool fromContinue = false;
-		public bool GAMEEND = false;
+		public static bool GAMEEND = false;
+		public bool noAnswerCheck = false;
 
 		public static Vector2 movetogoal;
 		public static Vector2 movetogoallist;
 		public static MessageState m;
-		//private string[] answers = new string[]{"answer","answer","answer","answer","answer","answer","answer","answer","answer","answer","answer","answer"};
+		private string[] answers = new string[]{"いいたいほうだい","りべんじ","ぐらいだー","ちまなこ","どぐう","あほうどり","ちょぞうこ","かりぶかい","のひつじ","ひえらるきー","つちだんご","ぎしんあんき"};
 		//public static string youranswer;
 		private bool shelf=false;
 		private bool dozo=false;
@@ -170,11 +171,13 @@ public class GameSceneManager : MonoBehaviour {
 				string text = GuiManager.textFieldString;
 				bool correct=true;
 				if (text == "ひらがなで！")return;
-				//if (text != answers [floorNum - 1])correct = false;
+				if (text != answers [floorNum - 1])correct = false;
 				if (correct)
 						temp = MessageState.CORRECT;
-				else
+				else {
+						GAMEEND = true;
 						temp = MessageState.INCORRECT;
+				}
 				changeMessage (temp);
 				stateUp ();
 		}
@@ -198,7 +201,7 @@ public class GameSceneManager : MonoBehaviour {
 		void stateUp(){
 				before = gstate;
 				if (floorNum == 13 && gstate != state.keymessage){gstate = state.THIRTEEN;changeMessage (MessageState.INTOTHIRTEEN);return;}
-				if (GAMEEND) {gstate = state.GAMEEND;return;}
+				//if (GAMEEND) {gstate = state.GAMEEND;return;}
 				gstate++;
 				GuiManager.textFieldString = "ひらがなで！";
 				if (gstate == state.ZZZ)
