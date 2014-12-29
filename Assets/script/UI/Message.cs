@@ -140,7 +140,7 @@ public class Message: MonoBehaviour {
 						break;
 				case MessageState.HIKIDASHI:
 						text = "自分の身を守ったのは、\n" +
-						                               "<u>偶然ではなく奇跡だった。</u>\n\n" +
+						                               "<b>偶</b>然ではなく<b>奇</b>跡だった。\n\n" +
 						                               "鍵をひとつ、手に取れ。\n\n\n\n" +
 						                               "? ? ? ? ? ?   ? ? ? ? ? ?\n" +
 						                               "‾ ‾ ‾ ‾ ‾ ‾   ‾ ‾ ‾ ‾ ‾ ‾";
