@@ -322,7 +322,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (gsm,"stateUp",Type.SYSTEM);
 				setq (q,"next",Type.SYSTEM);
 				setq (message, "hide");
-				setq (menu, "close",Type.PARALLEL);
+				if(GameSceneManager.before == GameSceneManager.state.INTRO3)
+						setq (menu, "close");
+				else
+						setq (menu, "close",Type.PARALLEL);
 				setq (fogall,"visible");
 				setq (door,"close");
 

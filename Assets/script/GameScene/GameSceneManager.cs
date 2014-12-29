@@ -172,8 +172,9 @@ public class GameSceneManager : MonoBehaviour {
 				bool correct=true;
 				if (text == "ひらがなで！")return;
 				if (!noAnswerCheck) {
-						if (text != answers [floorNum - 1])
+						if (text != answers [floorNum-1]) {
 								correct = false;
+						}
 				}
 				if (correct)
 						temp = MessageState.CORRECT;
