@@ -47,9 +47,18 @@ public class option : MonoBehaviour {
 
 		void touched(){
 				if (touchable)
-						gsm.SendMessage ("touch",name);
+						gsm.SendMessage ("touch", name);
+				else
+						Debug.Log ("option Disabled");
 		}
-
+		void disable(int type){
+				touchable = false;
+				deq ();
+		}
+		void enable(int type){
+				touchable = true;
+				deq ();
+		}
 
 		void deq(){
 				GameSceneManager.gm.SendMessage ("deq");

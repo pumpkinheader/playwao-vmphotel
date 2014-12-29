@@ -170,6 +170,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 		//GameStart
 		void INTRO1Ev(){
+				setq (option,"disable");
 				setq (message,"goalcal");
 				setq (menu,"open");
 				setq (message,"visible");
@@ -200,6 +201,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				//deq ();
 		}
 		void toGameEv(){
+				setq (option,"enable");
 				NEXTEv ();
 		}
 		//optionEv
