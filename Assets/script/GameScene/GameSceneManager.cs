@@ -21,6 +21,7 @@ public class GameSceneManager : MonoBehaviour {
 		private bool hikidashi=false;
 		public static int thcounter=0;//defalut 0
 		public static int remain = 3;//default 3
+		private AudioSource bgm;
 
 		public enum state{
 				INTRO1 = -3,
@@ -51,6 +52,9 @@ public class GameSceneManager : MonoBehaviour {
 		}
 	// Use this for initialization
 	void Start () {
+				AudioSource[] audioSources = GetComponents<AudioSource>();
+				bgm = audioSources[0];
+				bgm.Play ();
 				gstate = state.NEXT;
 				gstate = state.INTRO1;
 				gm = GameObject.Find ("GameManager");

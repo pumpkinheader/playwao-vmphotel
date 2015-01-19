@@ -102,9 +102,10 @@ public class Message: MonoBehaviour {
 				case MessageState.INTROTOGAME:
 						text = "ヴァンパイアホテルへ\n" +
 						                               "ようこそ...\n" +
+						                               "私が当館12階まで順番にご\n案内させていただきます。\n" +
 						                               "ご案内の前に、当館の規約を\n" +
 						                               "ご確認くださいませ。\n";
-						line = 10.0f;
+						line = 14.0f;
 						break;
 				case MessageState.INTROTOGAME2:
 						text = "１．１階ごとに謎を１つ解く\n" +
