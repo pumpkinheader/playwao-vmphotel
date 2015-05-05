@@ -8,7 +8,7 @@ public class eleplate : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 				bs = gameObject.GetComponent<SpriteRenderer> ();
-				bs.renderer.enabled = false;
+				bs.GetComponent<Renderer>().enabled = false;
 				iTween.ColorTo (gameObject,iTween.Hash("a", 0.0f, "easetype", "easeincirc", "time", 0.01f));
 
 	}
@@ -19,11 +19,11 @@ public class eleplate : MonoBehaviour {
 	}
 
 		void visible(){
-				bs.renderer.enabled = true;
+				bs.GetComponent<Renderer>().enabled = true;
 				iTween.ColorTo (gameObject,iTween.Hash("a", 1.0f, "easetype", "easeincirc", "time", 1.4f));
 		}
 		void hide(){
-				bs.renderer.enabled = false;
+				bs.GetComponent<Renderer>().enabled = false;
 				iTween.ColorTo (gameObject,iTween.Hash("a", 0.0f, "easetype", "easeincirc", "time", 1.0f));
 		}
 }

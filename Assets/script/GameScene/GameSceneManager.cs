@@ -21,7 +21,7 @@ public class GameSceneManager : MonoBehaviour {
 		private bool hikidashi=false;
 		public static int thcounter=0;//defalut 0
 		public static int remain = 3;//default 3
-		private AudioSource bgm;
+		//private AudioSource bgm;
 
 		public enum state{
 				INTRO1 = -3,
@@ -52,9 +52,10 @@ public class GameSceneManager : MonoBehaviour {
 		}
 	// Use this for initialization
 	void Start () {
-				AudioSource[] audioSources = GetComponents<AudioSource>();
-				bgm = audioSources[0];
-				bgm.Play ();
+//				AudioSource[] audioSources = GetComponents<AudioSource>();
+//				bgm = audioSources[0];
+//				bgm.Play ();
+				GAMEEND = false;
 				gstate = state.NEXT;
 				gstate = state.INTRO1;
 				gm = GameObject.Find ("GameManager");
@@ -63,6 +64,7 @@ public class GameSceneManager : MonoBehaviour {
 				floorNum = 0;
 				//load ();
 				movetogoallist = new Vector2 (0f,0f);
+				SoundManager.Instance.PlayBGM(0);
 	}
 	
 	// Update is called once per frame
@@ -83,6 +85,7 @@ public class GameSceneManager : MonoBehaviour {
 
 		void touch(string name){
 				if (GameManager.touchable) {
+						SoundManager.Instance.PlaySE (0);
 						setTouch (false);
 						if (name == "next")
 								stateUp ();
@@ -110,24 +113,29 @@ public class GameSceneManager : MonoBehaviour {
 						thcounter++;
 						setTouch (false);
 						if (name == "keyS") {
+								SoundManager.Instance.PlaySE (5);
 								gkey = keynum.SILVER;
 								changeMessage (MessageState.ELE);
 								//gm.SendMessage ("keyEv");
 								gm.SendMessage ("preEleEv");
 						} else if (name == "keyG") {
+								SoundManager.Instance.PlaySE (5);
 								gkey = keynum.GOLD;
 								changeMessage (MessageState.ELE);
 								//gm.SendMessage ("keyEv");
 								gm.SendMessage ("preEleEv");
 						} else if ((name == "SHELF") && (!shelf) && (!dozo) && (!hikidashi)) {
+								SoundManager.Instance.PlaySE (4);
 								shelf = true;
 								changeMessage (MessageState.SHELF);
 								gm.SendMessage ("messageEv");
 						} else if ((name == "DOZO") && (shelf) && (!dozo) && (!hikidashi)) {
+								SoundManager.Instance.PlaySE (4);
 								dozo = true;
 								changeMessage (MessageState.DOZO);
 								gm.SendMessage ("messageEv");
 						} else if ((name == "HIKIDASHI") && (shelf) && (dozo) && (!hikidashi)) {
+								SoundManager.Instance.PlaySE (4);
 								//hikidashi = true;
 								changeMessage (MessageState.HIKIDASHI);
 								gstate = state.keymessage;

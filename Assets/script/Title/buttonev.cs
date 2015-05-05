@@ -15,8 +15,8 @@ public class buttonev : MonoBehaviour {
 				{
 						//Debug.Log ("in");
 						touchable = false;
-						Color c = this.gameObject.renderer.material.color;
-						this.gameObject.renderer.material.color = new Color (c.r,c.g,c.b,0.4f);
+						Color c = this.gameObject.GetComponent<Renderer>().material.color;
+						this.gameObject.GetComponent<Renderer>().material.color = new Color (c.r,c.g,c.b,0.4f);
 				}
 	}
 	
@@ -48,8 +48,8 @@ public class buttonev : MonoBehaviour {
 	}
 
 		void deq(){
-				this.gameObject.renderer.enabled = false;
-				this.gameObject.collider2D.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
+				this.gameObject.GetComponent<Collider2D>().enabled = false;
 				titleManager.gm.SendMessage ("deq");
 		}
 }

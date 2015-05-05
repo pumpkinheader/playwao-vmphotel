@@ -9,7 +9,7 @@ public class GUITEST : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 				//TouchManager touch;
-				text = this.gameObject.renderer.bounds.ToString();
+				text = this.gameObject.GetComponent<Renderer>().bounds.ToString();
 	}
 	
 	// Update is called once per frame

@@ -18,6 +18,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void Start () {
 				touchable = true;
 				fromContinue = false;
+				sm = GameObject.Find ("SoundManager");
 		}
 		void Update () {
 		}
@@ -81,6 +82,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		public GameObject im;
 		public GameObject nowload;
 		public GameObject titleManager;
+		public GameObject sm;
 
 		void startEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -94,6 +96,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				//setq (intr,"visible");
 				fromContinue = false;
 				keyview = false;
+				eleon = false;
 				introCount = 0;
 				introEv ();
 				Debug.Log (animQ);
@@ -364,8 +367,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				setq (q, "elevenmove");
 				deq ();
 		}
-
+		private int BGMIndexClock = 3;
 		void thirteenstartEv(){
+				//SoundManager.Instance.PlayBGM (BGMIndexClock);
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				setq (q,"hide");
 				setq (message, "hide");
@@ -468,7 +472,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						
 				deq ();
 		}
-
+		
 		void preEleEv(){
 				//issue81
 				//エレベーター前のメッセージ
@@ -549,11 +553,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				deq ();
 		}
 		public GameObject timebar;
-		private bool eleon = false;
+		public bool eleon = false;
 		void setTouchTrue(){
 				setTouch (true);
 		}
+		private int BGMIndexEle = 4;
 		void ELEPANELEv(){
+				//SoundManager.Instance.PlayBGM (4);
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				if (!eleon) {
 						eleon = true;
@@ -580,6 +586,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 						//setq (this.gameObject,"timeupEv");
 						deq ();
 				} else {
+						setq (cross, "enable");
 						setq (message, "hide");
 						setq (option,"hide",Type.PARALLEL);
 						setq (list, "hide");
@@ -675,6 +682,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void NOCROSSEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
+				SoundManager.Instance.PlayBGM (2);
 				setq (bc_end,"setSprite");
 				setq (UICamera,"hide",Type.PARALLEL);
 				setq (bc_end,"visible");
@@ -686,6 +694,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void ONENOKEYEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
+				SoundManager.Instance.PlayBGM (2);
 				setq (back,"hide",Type.PARALLEL);
 				setq (backth,"hide");
 				setq (bc_end,"setSprite");
@@ -700,7 +709,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 		void ONEWITHKEYEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
-
+				SoundManager.Instance.PlayBGM (1);
 				setq (back,"hide",Type.PARALLEL);
 				setq (backth,"hide");
 				setq (bc_end,"setSprite");
@@ -726,6 +735,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void UNDERNOKEYEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
+				SoundManager.Instance.PlayBGM (2);
 				setq (back,"hide",Type.PARALLEL);
 				setq (backth,"hide");
 				setq (bc_end,"setSprite");
@@ -740,7 +750,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 		void UNDERWITHKEYEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
-
+				SoundManager.Instance.PlayBGM (1);
 				setq (back,"hide",Type.PARALLEL);
 				setq (backth,"hide");
 				setq (bc_end,"setSprite");
@@ -766,6 +776,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		void UNDERWITHONEKEYEv(){
 				Debug.Log ("Set Ev : "+System.Reflection.MethodBase.GetCurrentMethod().Name);
 				//setq (fogall,"fog");
+				SoundManager.Instance.PlayBGM (2);
 				setq (back,"hide",Type.PARALLEL);
 				setq (backth,"hide");
 				setq (bc_end,"setSprite");

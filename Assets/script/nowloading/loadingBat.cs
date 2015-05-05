@@ -8,7 +8,7 @@ public class loadingBat : MonoBehaviour {
 		// Use this for initialization
 		void Start () {
 				DontDestroyOnLoad (this.gameObject);
-				r = this.gameObject.renderer;
+				r = this.gameObject.GetComponent<Renderer>();
 				r.enabled = false;
 		}
 	

@@ -24,7 +24,7 @@ public class QManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 				qcam = GameObject.Find ("QCamera");
-				qcam.camera.enabled=false;
+				qcam.GetComponent<Camera>().enabled=false;
 				GameSceneManager.gmscript.q = this.gameObject;
 				qrenderer = this.gameObject.GetComponent<SpriteRenderer>();
 				qrenderer.sprite = qs [0];
@@ -49,7 +49,7 @@ public class QManager : MonoBehaviour {
 						erenderer[i] = go.gameObject.GetComponent<SpriteRenderer> ();
 						//erenderer [i].renderer.enabled = false
 						collis.AddRange (go.GetComponentsInChildren<BoxCollider2D>());
-						go.renderer.enabled = false;
+						go.GetComponent<Renderer>().enabled = false;
 						i++;
 						iTween.ColorTo (go, iTween.Hash ("a", 0.0f, "easetype", "easeincirc", "time", 0.01f));
 				}
@@ -67,14 +67,14 @@ public class QManager : MonoBehaviour {
 	
 	}
 		void onCamera(){
-				qcam.camera.enabled = true;
+				qcam.GetComponent<Camera>().enabled = true;
 		}
 		void endmode(){
-				Debug.Log ("tectheigt"+qcam.camera.rect.width);
-				qcam.camera.rect = new Rect (qcam.camera.rect.x,qcam.camera.rect.y,0.85f,qcam.camera.rect.height);
+				Debug.Log ("tectheigt"+qcam.GetComponent<Camera>().rect.width);
+				qcam.GetComponent<Camera>().rect = new Rect (qcam.GetComponent<Camera>().rect.x,qcam.GetComponent<Camera>().rect.y,0.85f,qcam.GetComponent<Camera>().rect.height);
 		}
 		void visible(int type){
-				qcam.camera.enabled=true;
+				qcam.GetComponent<Camera>().enabled=true;
 				if (now != GameSceneManager.floorNum) {
 						now = GameSceneManager.floorNum;
 						qrenderer.sprite = qs[now-1];
@@ -95,7 +95,7 @@ public class QManager : MonoBehaviour {
 						//int i = 0;
 						foreach (GameObject go in elevens) {
 								//erenderer [i++].enabled = true;
-								go.renderer.enabled = true;
+								go.GetComponent<Renderer>().enabled = true;
 								iTween.ColorTo (go, iTween.Hash ("delay",1.2f,"a", 1.0f, "easetype", "easeincirc", "time", 0.8f));
 						}
 						foreach(BoxCollider2D pc in collis){

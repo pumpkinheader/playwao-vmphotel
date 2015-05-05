@@ -5,7 +5,7 @@ public class backth : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 				GameSceneManager.gmscript.backth = this.gameObject;
 	}
 	
@@ -15,11 +15,11 @@ public class backth : MonoBehaviour {
 	}
 
 		void visible(int type){
-				this.gameObject.renderer.enabled = true;
+				this.gameObject.GetComponent<Renderer>().enabled = true;
 				deq ();
 		}
 		void hide(int type){
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 				deq ();
 		}
 

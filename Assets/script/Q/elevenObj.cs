@@ -15,7 +15,7 @@ public class elevenObj : MonoBehaviour {
 
 
 		void renderfalse(){
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 		}
 
 		void touched(){}

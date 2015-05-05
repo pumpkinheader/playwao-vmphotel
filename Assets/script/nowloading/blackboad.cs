@@ -5,7 +5,7 @@ public class blackboad : MonoBehaviour {
 		private Renderer r;
 	// Use this for initialization
 	void Start () {
-				r = this.gameObject.renderer;
+				r = this.gameObject.GetComponent<Renderer>();
 				r.material.color = new Color (255f,255f,255f,1.0f);
 				r.enabled = false;
 	}

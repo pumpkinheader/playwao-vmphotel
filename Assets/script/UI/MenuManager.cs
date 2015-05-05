@@ -25,6 +25,9 @@ public class MenuManager : MonoBehaviour {
 
 		public float delay = 0.4f;
 
+		private int SEIndexOpen = 9;
+		private int SEIndexClose = 8;
+
 	// Use this for initialization
 	void Start () {
 				GameSceneManager.gmscript.menu = this.gameObject;
@@ -61,7 +64,7 @@ public class MenuManager : MonoBehaviour {
 				topclose = menutop.GetComponent<SpriteRenderer>().sprite.rect.size.y / 2.0f;
 				bottomclose = -topclose;
 				//backsize = menuback.GetComponent<SpriteRenderer>().sprite.rect.size.y;
-				backsize = menuback.GetComponent<SpriteRenderer> ().renderer.bounds.size.y;
+				backsize = menuback.GetComponent<SpriteRenderer> ().GetComponent<Renderer>().bounds.size.y;
 				backscale = topclose * 2 / backsize;
 
 				backwidth = menuback.GetComponent<SpriteRenderer> ().sprite.rect.size.x;
@@ -83,7 +86,7 @@ public class MenuManager : MonoBehaviour {
 				goalformenu = GameSceneManager.movetogoal.y + topclose;
 				float goalscale = goalformenu*2f/backsize;
 
-				
+				SoundManager.Instance.PlaySE(SEIndexOpen);
 				//5階縦長につき特別仕様
 				if (GameSceneManager.floorNum == 5) {
 						goalformenu = full;
@@ -113,6 +116,7 @@ public class MenuManager : MonoBehaviour {
 				}
 		}
 		void fullopen(int type){
+				SoundManager.Instance.PlaySE(SEIndexOpen);
 				visible (1);
 				foreach (GameObject go in menus)
 						iTween.ColorTo (go,iTween.Hash("a", 1.0f, "easetype", "easeincirc", "time", 0.8f));
@@ -129,6 +133,7 @@ public class MenuManager : MonoBehaviour {
 				iTween.ScaleTo (menuback,iTween.Hash("y",full*2f/backsize,"delay",delay,"time",0.8f));
 		}
 		void optionopen(int type){
+				SoundManager.Instance.PlaySE(SEIndexOpen);
 				visible (1);
 				foreach (GameObject go in menus)
 						iTween.ColorTo (go,iTween.Hash("a", 1.0f, "easetype", "easeincirc", "time", 0.8f));
@@ -144,6 +149,7 @@ public class MenuManager : MonoBehaviour {
 				iTween.ScaleTo (menuback,iTween.Hash("y",goalscale,"delay",delay,"time",0.8f));
 		}
 		void listopen(int type){
+				SoundManager.Instance.PlaySE(SEIndexOpen);
 				goalformenu = GameSceneManager.movetogoallist.y + topclose;
 				float goalscale = goalformenu*2f/backsize;
 
@@ -196,8 +202,12 @@ public class MenuManager : MonoBehaviour {
 		void close(int type){
 				if (hided)
 						type = 0;
+				else 
+						SoundManager.Instance.PlaySE(SEIndexClose);
+
 				foreach (GameObject go in menus)
 						iTween.ColorTo (go,iTween.Hash("a", 0.0f, "easetype", "easeincirc", "time", 0.8f));
+
 				if (type == 1) {
 						iTween.MoveTo (menutop, iTween.Hash ("y", topclose, 
 								"delay", delay, "time", 0.8f,
@@ -216,6 +226,7 @@ public class MenuManager : MonoBehaviour {
 		}
 		void closeNoHide(int type){
 				float time = 1.2f;
+				SoundManager.Instance.PlaySE(SEIndexClose);
 				if (type == 1) {
 						iTween.MoveTo (menutop, iTween.Hash ("y", topclose, 
 								"delay", delay, "time", time,
@@ -267,9 +278,9 @@ public class MenuManager : MonoBehaviour {
 				deq ();
 		}
 		void bottomoff(int type){
-				next.renderer.enabled = false;
-				answer.renderer.enabled = false;
-				closeobj.renderer.enabled = false;
+				next.GetComponent<Renderer>().enabled = false;
+				answer.GetComponent<Renderer>().enabled = false;
+				closeobj.GetComponent<Renderer>().enabled = false;
 				nextb.enabled = false;
 				answerb.enabled = false;
 				closeb.enabled = false;
@@ -277,9 +288,9 @@ public class MenuManager : MonoBehaviour {
 				deq ();
 		}
 		void bottomon(int type){
-				next.renderer.enabled = true;
-				answer.renderer.enabled = true;
-				closeobj.renderer.enabled = true;
+				next.GetComponent<Renderer>().enabled = true;
+				answer.GetComponent<Renderer>().enabled = true;
+				closeobj.GetComponent<Renderer>().enabled = true;
 				nextb.enabled = true;
 				answerb.enabled = true;
 				closeb.enabled = true;
@@ -288,16 +299,16 @@ public class MenuManager : MonoBehaviour {
 		}
 		void keyon(int type){
 				bool temp = true;
-				keyG.renderer.enabled = temp;
-				keyS.renderer.enabled = temp;
+				keyG.GetComponent<Renderer>().enabled = temp;
+				keyS.GetComponent<Renderer>().enabled = temp;
 				keygb.enabled = temp;
 				keysb.enabled = temp;
 				deq ();
 		}
 		void keyoff(int type){
 				bool temp = false;
-				keyG.renderer.enabled = temp;
-				keyS.renderer.enabled = temp;
+				keyG.GetComponent<Renderer>().enabled = temp;
+				keyS.GetComponent<Renderer>().enabled = temp;
 				keygb.enabled = temp;
 				keysb.enabled = temp;
 				deq ();
@@ -306,12 +317,12 @@ public class MenuManager : MonoBehaviour {
 		private bool hided = false;
 		void hide(int type){
 				hided = true;
-				menucamera.camera.enabled = false;
+				menucamera.GetComponent<Camera>().enabled = false;
 				deq ();
 		}
 		void visible(int type){
 				hided = false;
-				menucamera.camera.enabled = true;
+				menucamera.GetComponent<Camera>().enabled = true;
 				//deq ();
 		}
 		void elase(int type){
@@ -325,7 +336,7 @@ public class MenuManager : MonoBehaviour {
 				deq ();
 		}
 		void remove(int type){
-				menucamera.camera.transform.localPosition = new Vector3 (0f,90f,0f);
+				menucamera.GetComponent<Camera>().transform.localPosition = new Vector3 (0f,90f,0f);
 				deq ();
 		}
 		void overdoor(int type){

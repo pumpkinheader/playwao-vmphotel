@@ -7,6 +7,9 @@ public class DoorManager : MonoBehaviour {
 		public GameObject leftdoor;
 		private float rclose,lclose;
 		private bool opened=false;
+		private int SEIndexShake = 12;
+		private int SEIndexOpen = 13;
+		private int SEIndexClose = 14;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +31,7 @@ public class DoorManager : MonoBehaviour {
 						deq ();
 						return;
 				}
+				SoundManager.Instance.PlaySE (SEIndexOpen);
 				iTween.MoveTo(leftdoor, iTween.Hash("islocal",true,"x",-420, "time", 3.0f,"delay",0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncomplete", "dooropend", "oncompletetarget", this.gameObject));
 				if (type == 1)
 						iTween.MoveTo (rightdoor, iTween.Hash ("islocal",true,"x", 420, "time", 3.0f, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad, "oncomplete", "deq", "oncompletetarget", this.gameObject));
@@ -44,7 +48,7 @@ public class DoorManager : MonoBehaviour {
 						deq ();
 						return;
 				}
-
+				SoundManager.Instance.PlaySE (SEIndexClose);
 				if (type == 1)
 						iTween.MoveTo (rightdoor, iTween.Hash ("islocal",true,"x", rclose, "time", 3.0f, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad, "oncomplete", "deq", "oncompletetarget", this.gameObject));
 				else {
@@ -67,6 +71,12 @@ public class DoorManager : MonoBehaviour {
 		}
 		void closeth(int type){
 				float time = 0.6f;
+				if (leftdoor.transform.localPosition.x != lclose) {
+				}else {
+						deq ();
+						return;
+				}
+				SoundManager.Instance.PlaySE (SEIndexClose);
 				if (leftdoor.transform.localPosition.x != lclose)
 						iTween.MoveTo (leftdoor, iTween.Hash ("islocal", true, "x",lclose, "time", time, "delay", 0.3f, "easetype", iTween.EaseType.easeOutQuad,"oncomplete", "doorclosed", "oncompletetarget", this.gameObject));
 				else {
@@ -117,15 +127,27 @@ public class DoorManager : MonoBehaviour {
 				}
 		}
 		void shake(int type){
+			if (!GameSceneManager.gmscript.eleon) {
+					SoundManager.Instance.LoopSE (SEIndexShake);
+					SoundManager.Instance.PlaySE (SEIndexShake);
+			} else {
+				SoundManager.Instance.StopBGM();
+				SoundManager.Instance.LoopSE(15);
+				SoundManager.Instance.PlaySE(15);
+			}
 				iTween.ShakePosition (leftdoor,iTween.Hash("x",10f,"y",10f,"time",2.4f));
 				if (type == 1)
-						iTween.ShakePosition (rightdoor, iTween.Hash ("x", 10f, "y", 10f, "time", 2.4f, "oncompletetarget", this.gameObject, "oncomplete", "deq"));
+						iTween.ShakePosition (rightdoor, iTween.Hash ("x", 10f, "y", 10f, "time", 2.4f, "oncompletetarget", this.gameObject, "oncomplete", "shakeEnd"));
 				else {
 						deq ();
 						iTween.ShakePosition (rightdoor, iTween.Hash ("x", 10f, "y", 10f, "time", 2.4f));
 				}
 		}
 		void shaketh(int type){
+//		SoundManager.Instance.StopBGM();
+//		SoundManager.Instance.LoopSE(15);
+//		SoundManager.Instance.PlaySE(15);
+				SoundManager.Instance.PlayBGM (3);
 				iTween.ShakePosition (leftdoor,iTween.Hash("x",10f,"y",10f,"time",3000f,"name","leftshake"));
 				if (type == 1)
 						iTween.ShakePosition (rightdoor, iTween.Hash ("x", 10f, "y", 10f, "time", 3000f, "name", "rightshake"));//, "oncompletetarget", this.gameObject, "oncomplete", "deq"));
@@ -149,11 +171,18 @@ public class DoorManager : MonoBehaviour {
 		void deq(){
 				GameSceneManager.gm.SendMessage ("deq");
 		}
+		void shakeEnd(){
+				SoundManager.Instance.StopSE ();
+				SoundManager.Instance.PlaySE (11);
+				deq ();
+		}
 		void dooropend(){
+				SoundManager.Instance.StopSE ();
 				if(GameSceneManager.gstate != GameSceneManager.state.THIRTEEN)
 						opened = true;
 		}
 		void doorclosed(){
+				SoundManager.Instance.StopSE ();
 				opened = false;
 		}
 }

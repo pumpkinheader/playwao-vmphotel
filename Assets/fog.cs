@@ -15,7 +15,7 @@ public class fog : MonoBehaviour {
 		void Start () {
 				fcam = GameObject.Find ("FogCamera");
 				GameSceneManager.gmscript.fogback = gameObject;
-				fcam.camera.enabled = false;
+				fcam.GetComponent<Camera>().enabled = false;
 				iTween.ColorTo (gameObject,iTween.Hash("a",alpha,"time",0.01f,"oncompletetarget",this.gameObject,"oncomplete","enable"));
 	}
 	
@@ -52,6 +52,6 @@ public class fog : MonoBehaviour {
 		void enable(){
 				Debug.Log ("enable");
 				on = true;
-				fcam.camera.enabled = true;
+				fcam.GetComponent<Camera>().enabled = true;
 		}
 }

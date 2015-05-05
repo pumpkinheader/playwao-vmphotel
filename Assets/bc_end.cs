@@ -75,7 +75,7 @@ public class bc_end : MonoBehaviour {
 				float goal = -1.0f *( tmp - 1156f )/2f;
 				iTween.MoveTo (gecobj,iTween.Hash("y",goal,"time",3.6f,"oncompletetarget",gameObject,"oncomplete","deq"));
 				//iTween.MoveTo (gme,iTween.Hash("y",goal,"time",3.6f,"oncompletetarget",gameObject,"oncomplete","deq"));
-				gmebc.center = new Vector2 (0f,goal);
+				gmebc.offset = new Vector2 (0f,goal);
 		}
 
 		void deq(){

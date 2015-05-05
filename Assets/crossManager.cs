@@ -46,6 +46,11 @@ public class crossManager : MonoBehaviour {
 				sr_s.enabled = false;
 				if(type==1)deq ();
 		}
+		void enable(int type){
+				sr_s.enabled = true;
+				if (type == 1)
+						deq ();
+		}
 		void pingpong(int type){
 				iTween.ColorTo (cross_s, iTween.Hash ("a", 0f, "time", 0.8f,"looptype",iTween.LoopType.pingPong));
 				deq ();

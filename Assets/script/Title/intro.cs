@@ -11,7 +11,7 @@ public class intro : MonoBehaviour {
 	void Start () {
 				touchable = false;
 				//titleManager.gmscript.intr = this.gameObject;
-				gameObject.renderer.enabled = false;
+				gameObject.GetComponent<Renderer>().enabled = false;
 				bc = gameObject.GetComponent<BoxCollider2D> ();
 				bc.enabled = false;
 				var c = gameObject.GetComponent<SpriteRenderer> ().color;

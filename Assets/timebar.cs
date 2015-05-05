@@ -23,7 +23,7 @@ public class timebar : MonoBehaviour {
 				foreach(GameObject go in tmbs){
 						iTween.ColorTo (go,iTween.Hash("a",0f,"time",0.01f));
 						tmbsrs[i] = go.GetComponent<SpriteRenderer> ();
-						tmbsrs [i].renderer.enabled = false;
+						tmbsrs [i].GetComponent<Renderer>().enabled = false;
 						i++;
 				}
 				tmbsrs [2].sprite = numbers [9];

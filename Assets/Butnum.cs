@@ -20,7 +20,7 @@ public class Butnum : MonoBehaviour {
 
 		void setnum(int i){
 				if (i > 12||i < 1)
-						sr.renderer.enabled = false; 
+						sr.GetComponent<Renderer>().enabled = false; 
 				else
 						sr.sprite = nums [i-1];
 		}

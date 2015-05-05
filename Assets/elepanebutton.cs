@@ -17,7 +17,7 @@ public class elepanebutton : MonoBehaviour {
 				bs = gameObject.GetComponent<SpriteRenderer> ();
 				bb = gameObject.GetComponent<BoxCollider2D>();
 				bs.sprite = buttons [0];
-				bs.renderer.enabled = false;
+				bs.GetComponent<Renderer>().enabled = false;
 				bb.enabled = false;
 				iTween.ColorTo (gameObject,iTween.Hash("a", 0.0f, "easetype", "easeincirc", "time", 0.01f));
 	}
@@ -42,20 +42,25 @@ public class elepanebutton : MonoBehaviour {
 						 onbutton [6] &&
 						 onbutton [7] &&
 						 onbutton [8]) {
-								ElepaneManager.crosson = true;
-								GameSceneManager.gm.SendMessage ("crossEv");
+								if (onbutton [1] || onbutton [2] || onbutton [4] || onbutton [9] || onbutton [10] || onbutton [12]) {
+
+								} else {
+
+										ElepaneManager.crosson = true;
+										GameSceneManager.gm.SendMessage ("crossEv");
+								}
 						}
 				}
 		}
 
 		void visible(){
 //				Debug.Log ("button visible");
-				bs.renderer.enabled = true;
+				bs.GetComponent<Renderer>().enabled = true;
 				bb.enabled = true;
 				iTween.ColorTo (gameObject,iTween.Hash("a", 1.0f, "easetype", "easeincirc", "time", 1.4f));
 		}
 		void hide(){
-				bs.renderer.enabled = false;
+				bs.GetComponent<Renderer>().enabled = false;
 				bb.enabled = false;
 				iTween.ColorTo (gameObject,iTween.Hash("a", 0.0f, "easetype", "easeincirc", "time", 1.0f));
 		}

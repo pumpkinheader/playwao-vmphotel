@@ -18,6 +18,7 @@ public class titleManager : MonoBehaviour {
 				gmscript.intr = GameObject.Find ("intro");
 				gmscript.titleManager = this.gameObject;
 				load ();
+				SoundManager.Instance.PlayBGM(0);
 	}
 	
 	// Update is called once per frame

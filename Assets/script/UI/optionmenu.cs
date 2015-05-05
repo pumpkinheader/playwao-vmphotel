@@ -7,7 +7,7 @@ public class optionmenu : MonoBehaviour {
 		BoxCollider2D b;
 	// Use this for initialization
 	void Start () {
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 				s = this.gameObject.GetComponent<SpriteRenderer> ();
 				b = this.gameObject.GetComponent<BoxCollider2D> ();
 				b.enabled = false;
@@ -20,7 +20,7 @@ public class optionmenu : MonoBehaviour {
 	}
 
 		void visible(){
-				this.gameObject.renderer.enabled = true;
+				this.gameObject.GetComponent<Renderer>().enabled = true;
 				b.enabled = true;
 				iTween.ColorTo (this.gameObject, iTween.Hash ("a", 1.0f, "time", 0.8f, "easetype", "easeincirc"));
 		}
@@ -46,11 +46,11 @@ public class optionmenu : MonoBehaviour {
 		}
 		void deqwithfalse(){
 				Debug.Log ("deq with false");
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 				GameSceneManager.gm.SendMessage ("deq");
 		}
 		void renderfalse(){
-				this.gameObject.renderer.enabled = false;
+				this.gameObject.GetComponent<Renderer>().enabled = false;
 		}
 
 		void touched(){
